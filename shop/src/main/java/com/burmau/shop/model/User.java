@@ -1,5 +1,6 @@
 package com.burmau.shop.model;
 
+<<<<<<< HEAD
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,4 +17,7 @@ public class User{
     Long id;
     String username;
     String password;
+=======
+public record User(String username, String password) {
+>>>>>>> 6d726dc (most classes and packages)
 }
