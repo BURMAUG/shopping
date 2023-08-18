@@ -1,7 +1,9 @@
 package com.burmau.shop.model.fruit;
 
+import java.math.BigDecimal;
+
 public class Pepper extends Fruit{
-    private double price;
+    private BigDecimal price;
     private String description;
     @Override
     String getFruitType() {
@@ -9,7 +11,7 @@ public class Pepper extends Fruit{
     }
 
     @Override
-    double getFruitPrice() {
+    BigDecimal getFruitPrice() {
         return price;
     }
 
