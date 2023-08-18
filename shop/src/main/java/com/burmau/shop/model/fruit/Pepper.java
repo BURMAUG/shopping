@@ -1,7 +1,10 @@
 package com.burmau.shop.model.fruit;
 
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.*;
 
 import java.math.RoundingMode;
 
@@ -11,9 +14,14 @@ import java.math.BigDecimal;
  * Here the pepper will be measure in pounds as in the USA
  * and for pepper 1lbs = .3 cents
  */
-@Setter
+@Entity
+@Setter @Getter
+@AllArgsConstructor @NoArgsConstructor
 @ToString
 public class Pepper extends Fruit{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long pepperID;
     private static BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
     private final String description = "Hot and spicy pepper put with care!";
 
