@@ -19,7 +19,7 @@ public class Strawberry extends Fruit{
     private String description;
     @Override
     String getFruitType() {
-        return null;
+        return "Strawberry";
     }
 
     @Override
