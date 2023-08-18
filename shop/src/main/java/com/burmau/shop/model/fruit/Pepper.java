@@ -1,6 +1,8 @@
 package com.burmau.shop.model.fruit;
 
 import lombok.Setter;
+import lombok.ToString;
+
 import java.math.RoundingMode;
 
 import java.math.BigDecimal;
@@ -10,6 +12,7 @@ import java.math.BigDecimal;
  * and for pepper 1lbs = .3 cents
  */
 @Setter
+@ToString
 public class Pepper extends Fruit{
     private static BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
     private final String description = "Hot and spicy pepper put with care!";
