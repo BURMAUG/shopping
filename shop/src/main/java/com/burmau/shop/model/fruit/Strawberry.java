@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 public class Strawberry extends Fruit{
     private BigDecimal price;
-    private int amount;
     private String description;
     @Override
     String getFruitType() {
