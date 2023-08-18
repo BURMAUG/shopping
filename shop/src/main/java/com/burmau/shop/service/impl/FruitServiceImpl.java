@@ -29,6 +29,7 @@ public class FruitServiceImpl implements FruitService {
         Iterator<Strawberry> strawberryIterator = strawberryRepository.findAll().iterator();
         Iterator<Tomato> tomatoIterator = tomatoRepository.findAll().iterator();
         ArrayList<Fruit> fruits = new ArrayList<>();
+
         while (pepperiterator.hasNext())
             fruits.add(pepperiterator.next());
         while (strawberryIterator.hasNext())
