@@ -15,15 +15,16 @@ import java.math.*;
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 @ToString
-public class Strawberry extends Fruit{
+public class Strawberry extends Fruit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long strawberryID;
     private BigDecimal price = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
-    private String description;
+    private final String description = "Sweet, soft, red coloured fruit.";
 
     /**
-     *   This will always return strawberry
+     * This will always return strawberry
+     *
      * @return Strawberry.
      */
     @Override
@@ -33,22 +34,22 @@ public class Strawberry extends Fruit{
 
     /**
      * Compute the weight to return a price
-     * @param  weightOfItem - get the weight of the current item
+     *
+     * @param weightOfItem - get the weight of the current item
      * @return price of the fruit Strawberry.
      */
     @Override
     BigDecimal getFruitPrice(double weightOfItem) {
-        weightOfItem= Math.ceil(weightOfItem);
+        weightOfItem = Math.ceil(weightOfItem);
         price = price.multiply(new BigDecimal(weightOfItem)).setScale(2, RoundingMode.HALF_UP);
         return price;
     }
 
     /**
-     *
      * @return The sweet, soft, red fruit.
      */
     @Override
     String getFruitDescription() {
-        return "Sweet, soft, red coloured fruit.";
+        return description;
     }
 }
