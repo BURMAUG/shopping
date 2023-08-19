@@ -54,17 +54,18 @@ public class FruitServiceImpl implements FruitService {
 
     @Override
     public void saveNewPepper(Pepper pepper) {
-
+        //what if the pepper is null I should have a check for that.
+        pepperRepository.savePepper(pepper);
     }
 
     @Override
     public void saveNewStrawberry(Strawberry strawberry) {
-
+        strawberryRepository.saveStrawberry(strawberry);
     }
 
     @Override
     public void saveNewTomato(Tomato tomato) {
-
+        tomatoRepository.saveTomato(tomato);
     }
 
     private Iterable<Fruit> all(){
