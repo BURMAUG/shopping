@@ -18,19 +18,21 @@ public class Tomato extends Fruit{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tomatoID;
     private BigDecimal price = new BigDecimal("1.99").setScale(2, RoundingMode.HALF_UP);
-    private String description;
+    private final String description = "Red succulent fruit.";
     @Override
     String getFruitType() {
-        return null;
+        return "Tomato";
     }
 
     @Override
     BigDecimal getFruitPrice(double weightOfItem) {
-        return null;
+        weightOfItem = Math.ceil(weightOfItem);
+        price = price.multiply(new BigDecimal(weightOfItem));
+        return price;
     }
 
     @Override
     String getFruitDescription() {
-        return null;
+        return description ;
     }
 }

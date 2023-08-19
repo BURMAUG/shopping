@@ -8,7 +8,7 @@ import java.math.RoundingMode;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StrawberryTest {
-    Fruit strawberry = new Strawberry();
+    private final Fruit strawberry = new Strawberry();
 
     @Test
     void getFruitType() {
