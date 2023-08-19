@@ -24,6 +24,34 @@ public class FruitServiceImpl implements FruitService {
     public Iterable<Fruit> findAllFruit() {
         return all();
     }
+
+    @Override
+    public Iterable<Pepper> findAllPepper() {
+        Iterator<Pepper> pepperiterator = pepperRepository.findAll().iterator();
+        ArrayList<Pepper> peppers = new ArrayList<>();
+        while (pepperiterator.hasNext())
+            peppers.add(pepperiterator.next());
+        return peppers;
+    }
+
+    @Override
+    public Iterable<Strawberry> findAllStrawberry() {
+        Iterator<Strawberry> strawberryIterator = strawberryRepository.findAll().iterator();
+        ArrayList<Strawberry> strawberries = new ArrayList<>();
+        while (strawberryIterator.hasNext())
+            strawberries.add(strawberryIterator.next());
+        return strawberries;
+    }
+
+    @Override
+    public Iterable<Tomato> findAllTomato() {
+        Iterator<Tomato> tomatoIterator = tomatoRepository.findAll().iterator();
+        ArrayList<Tomato> tomatoes = new ArrayList<>();
+        while (tomatoIterator.hasNext())
+            tomatoes.add(tomatoIterator.next());
+        return tomatoes;
+    }
+
     private Iterable<Fruit> all(){
         Iterator<Pepper> pepperiterator = pepperRepository.findAll().iterator();
         Iterator<Strawberry> strawberryIterator = strawberryRepository.findAll().iterator();

@@ -2,6 +2,8 @@ package com.burmau.shop.controller;
 
 import com.burmau.shop.model.fruit.Fruit;
 import com.burmau.shop.model.fruit.Pepper;
+import com.burmau.shop.model.fruit.Strawberry;
+import com.burmau.shop.model.fruit.Tomato;
 import com.burmau.shop.service.FruitService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,4 +20,20 @@ public class FruitController {
     public Iterable<Fruit> getAllFruit(){
         return fruitService.findAllFruit();
     }
+    @GetMapping("/peppers")
+    public Iterable<Pepper> getAllPepper(){
+        return fruitService.findAllPepper();
+    }
+    @GetMapping("/strawberries")
+    public Iterable<Strawberry> getAllStrawberry(){
+        return fruitService.findAllStrawberry();
+    }
+    @GetMapping("/tomatoes")
+    public Iterable<Tomato> getAllTomato(){
+        return  fruitService.findAllTomato();
+    }
+
+    //patch
+
+    //delete
 }

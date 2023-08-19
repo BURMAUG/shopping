@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Entity
 @ToString
@@ -16,8 +17,7 @@ public class Tomato extends Fruit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tomatoID;
-    private BigDecimal price;
-    private int amount;
+    private BigDecimal price = new BigDecimal("1.99").setScale(2, RoundingMode.HALF_UP);
     private String description;
     @Override
     String getFruitType() {

@@ -7,6 +7,10 @@ import jakarta.persistence.Id;
 import lombok.*;
 
 import java.math.*;
+
+/**
+ *
+ */
 @Entity
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
