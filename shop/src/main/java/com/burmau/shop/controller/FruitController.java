@@ -6,9 +6,7 @@ import com.burmau.shop.model.fruit.Strawberry;
 import com.burmau.shop.model.fruit.Tomato;
 import com.burmau.shop.service.FruitService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/fruit")
@@ -31,6 +29,20 @@ public class FruitController {
     @GetMapping("/tomatoes")
     public Iterable<Tomato> getAllTomato(){
         return  fruitService.findAllTomato();
+    }
+    @PostMapping("/peppers/{pepper}")
+    public void addPepper(@RequestBody Pepper pepper){
+        fruitService.saveNewPepper(pepper);
+    }
+
+    @PostMapping("/strawberries/{strawberry}")
+    public void addStrawberry(@RequestBody Strawberry strawberry){
+        fruitService.saveNewStrawberry(strawberry);
+
+    }
+    @PostMapping("/tomatoes/{tomatoe}")
+    public void addTomato(@RequestBody Tomato tomato){
+        fruitService.saveNewTomato(tomato);
     }
 
     //patch
