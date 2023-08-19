@@ -15,20 +15,36 @@ public class Strawberry extends Fruit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long strawberryID;
-    private BigDecimal price;
+    private BigDecimal price = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
     private String description;
+
+    /**
+     *   This will always return strawberry
+     * @return Strawberry.
+     */
     @Override
     String getFruitType() {
         return "Strawberry";
     }
 
+    /**
+     * Compute the weight to return a price
+     * @param  weightOfItem - get the weight of the current item
+     * @return price of the fruit Strawberry.
+     */
     @Override
     BigDecimal getFruitPrice(double weightOfItem) {
-        return null;
+        weightOfItem= Math.ceil(weightOfItem);
+        price = price.multiply(new BigDecimal(weightOfItem)).setScale(2, RoundingMode.HALF_UP);
+        return price;
     }
 
+    /**
+     *
+     * @return The sweet, soft, red fruit.
+     */
     @Override
     String getFruitDescription() {
-        return null;
+        return "Sweet, soft, red coloured fruit.";
     }
 }
