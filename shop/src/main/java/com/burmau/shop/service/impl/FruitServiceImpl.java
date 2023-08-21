@@ -27,10 +27,10 @@ public class FruitServiceImpl implements FruitService {
 
     @Override
     public Iterable<Pepper> findAllPepper() {
-        Iterator<Pepper> pepperiterator = pepperRepository.findAll().iterator();
+        Iterator<Pepper> pepperIterator = pepperRepository.findAll().iterator();
         ArrayList<Pepper> peppers = new ArrayList<>();
-        while (pepperiterator.hasNext())
-            peppers.add(pepperiterator.next());
+        while (pepperIterator.hasNext())
+            peppers.add(pepperIterator.next());
         return peppers;
     }
 
@@ -70,13 +70,13 @@ public class FruitServiceImpl implements FruitService {
     }
 
     private Iterable<Fruit> all(){
-        Iterator<Pepper> pepperiterator = pepperRepository.findAll().iterator();
+        Iterator<Pepper> pepperIterator = pepperRepository.findAll().iterator();
         Iterator<Strawberry> strawberryIterator = strawberryRepository.findAll().iterator();
         Iterator<Tomato> tomatoIterator = tomatoRepository.findAll().iterator();
         ArrayList<Fruit> fruits = new ArrayList<>();
 
-        while (pepperiterator.hasNext())
-            fruits.add(pepperiterator.next());
+        while (pepperIterator.hasNext())
+            fruits.add(pepperIterator.next());
         while (strawberryIterator.hasNext())
             fruits.add(strawberryIterator.next());
         while (tomatoIterator.hasNext())
