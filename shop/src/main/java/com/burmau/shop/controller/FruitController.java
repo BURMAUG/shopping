@@ -31,17 +31,17 @@ public class FruitController {
         return  fruitService.findAllTomato();
     }
     @PostMapping("/peppers/{pepper}")
-    public void addPepper(@RequestBody Pepper pepper){
+    public void addPepper( @PathVariable Pepper pepper){
         fruitService.saveNewPepper(pepper);
     }
 
     @PostMapping("/strawberries/{strawberry}")
-    public void addStrawberry(@RequestBody Strawberry strawberry){
+    public void addStrawberry(@PathVariable Strawberry strawberry){
         fruitService.saveNewStrawberry(strawberry);
 
     }
-    @PostMapping("/tomatoes/{tomatoe}")
-    public void addTomato(@RequestBody Tomato tomato){
+    @PostMapping("/tomatoes/{tomato}")
+    public void addTomato(@PathVariable Tomato tomato){
         fruitService.saveNewTomato(tomato);
     }
 

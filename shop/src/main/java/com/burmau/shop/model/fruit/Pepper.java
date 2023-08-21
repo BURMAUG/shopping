@@ -22,7 +22,7 @@ public class Pepper extends Fruit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pepperID;
-    private static BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
+    private BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
     private final String description = "Hot and spicy pepper put with care!";
 
     /**

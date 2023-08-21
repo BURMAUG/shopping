@@ -55,17 +55,18 @@ public class FruitServiceImpl implements FruitService {
     @Override
     public void saveNewPepper(Pepper pepper) {
         //what if the pepper is null I should have a check for that.
-        pepperRepository.savePepper(pepper);
+        pepperRepository.saveNewPepper(pepper.getPrice(), pepper.getDescription());
     }
+
 
     @Override
     public void saveNewStrawberry(Strawberry strawberry) {
-        strawberryRepository.saveStrawberry(strawberry);
+        strawberryRepository.save(strawberry);
     }
 
     @Override
     public void saveNewTomato(Tomato tomato) {
-        tomatoRepository.saveTomato(tomato);
+        tomatoRepository.save(tomato);
     }
 
     private Iterable<Fruit> all(){
