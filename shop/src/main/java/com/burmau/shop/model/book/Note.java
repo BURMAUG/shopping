@@ -7,7 +7,6 @@ import lombok.ToString;
 @Getter @Setter
 @ToString
 public class Note extends Book {
-
     private double price;
     private int pageCount;
 
