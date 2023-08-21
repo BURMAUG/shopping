@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Setter @Getter
 @AllArgsConstructor @NoArgsConstructor
@@ -19,15 +20,22 @@ public class Text extends Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long textBookID;
     private String title;
-    private String author;
-    private BigDecimal price;
+    private String authorName;
+    private final String TYPE = "Textbook";
+    private BigDecimal price = new BigDecimal("1").setScale(2, RoundingMode.HALF_UP);
+    Text(String title, String authorName, BigDecimal price){
+        this.title = title;
+        this.authorName = authorName;
+        this.price = price;
+
+    }
     @Override
     String getType() {
-        return null;
+        return TYPE;
     }
 
     @Override
-    double getPrice() {
-        return 0;
+    BigDecimal getPrice() {
+        return price;
     }
 }
