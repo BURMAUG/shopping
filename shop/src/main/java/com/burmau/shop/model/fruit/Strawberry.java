@@ -46,13 +46,13 @@ public class Strawberry extends Fruit {
     /**
      * <h2>Compute the weight to return a price</h2>
      *
-     * @param weightOfItem - get the weight of the current item
+     * @param itemCount - get the weight of the current item
      * @return price of the fruit Strawberry.
      */
     @Override
-    BigDecimal getFruitPrice(double weightOfItem) {
-        weightOfItem = Math.ceil(weightOfItem);
-        price = price.multiply(new BigDecimal(weightOfItem)).setScale(2, RoundingMode.HALF_UP);
+    BigDecimal getFruitPrice(double itemCount) {
+        itemCount = Math.ceil(itemCount);
+        price = price.multiply(new BigDecimal(itemCount)).setScale(2, RoundingMode.HALF_UP);
         return price;
     }
 

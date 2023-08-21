@@ -1,4 +1,4 @@
-package com.burmau.shop.repository;
+package com.burmau.shop.repository.fruit;
 
 import com.burmau.shop.model.fruit.Pepper;
 import org.springframework.data.jpa.repository.Modifying;

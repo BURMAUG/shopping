@@ -22,8 +22,15 @@ public class Pepper extends Fruit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pepperID;
+    private double weight;
+    private final String NAME = "Pepper";
     private BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
-    private final String description = "Hot and spicy pepper put with care!";
+    private String description;//= "Hot and spicy pepper put with care!";
+    Pepper(Long pepperID, double weight, String description){
+        this.pepperID = pepperID;
+        this.weight = weight;
+        this.description = description;
+    }
 
     /**
      *
@@ -31,18 +38,18 @@ public class Pepper extends Fruit{
      */
     @Override
     String getFruitType() {
-        return "Pepper";
+        return NAME;
     }
 
 
     /**
      * This method takes in weight as a parameter and the use that to calculate the price.
-     * @param weightOfItem
+     * @param weight
      * @return price
      */
     @Override
-    BigDecimal getFruitPrice(double weightOfItem) {
-        price = price.multiply(new BigDecimal(weightOfItem));
+    BigDecimal getFruitPrice(double weight) {
+        price = price.multiply(new BigDecimal(weight));
         return price.setScale(2, RoundingMode.HALF_UP);
     }
 
