@@ -44,10 +44,14 @@ class NoteTest {
 
     @Test
     void setPrice() {
+        book.setPrice(new BigDecimal("1.23"));
+        assertEquals(new BigDecimal("14.76"), book.getPrice());
     }
 
     @Test
     void setPageCount() {
+        book.setPageCount(100);
+        assertEquals(100, book.getPageCount());
     }
 
     @Test

@@ -31,7 +31,7 @@ public class Note extends Book {
 
     @Override
     BigDecimal getPrice() {
-        this.price = price.multiply(new BigDecimal(pageCount));
+        this.price = price.multiply(new BigDecimal(String.valueOf(pageCount)));
         return price;
     }
 }
