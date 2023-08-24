@@ -4,61 +4,60 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.RoundingMode;
-
 import java.math.BigDecimal;
 
-/**
- * Here the pepper will be measure in pounds as in the USA
- * and for pepper 1lbs = .3 cents
- */
-@Entity @Table
+@Entity
+@Table(name = "pepper")
 @Setter @Getter
 @ToString
 @NoArgsConstructor
-public class Pepper extends Fruit{
+public class Pepper extends Fruit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pepperID;
-    private double weight;
-    private static final String NAME = "Pepper";
-    private String type;
-    private BigDecimal price ;//= new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
-    private String description;//= "Hot and spicy pepper put with care!";
 
-    public Pepper(double weight, String description){
-        this.pepperID = getPepperID();
-        this.weight = weight;
+    private double weight;
+
+    private static final String NAME = "Pepper";
+
+    private static final BigDecimal BASE_PRICE = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
+    private BigDecimal price = BASE_PRICE;
+
+    private String type = NAME;
+    private String description;
+
+    public Pepper(Long pepperID, double weight, String description) {
+        this.setType(NAME);
+        this.setPrice(getFruitPrice(weight));
+        this.setWeight(weight);
+        this.pepperID = pepperID;
+//        this.weight = weight;
         this.description = description;
-        price = getFruitPrice(weight);
     }
 
-    /**
-     *
-     * @return pepper as a constant.
-     */
+    public Pepper(double weight, String description) {
+        this.weight = weight;
+        this.description = description;
+        this.type = getFruitType();
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+        this.price = getFruitPrice(weight);
+    }
+
     @Override
-    String getFruitType() {
+    public String getFruitType() {
         return NAME;
     }
 
-
-    /**
-     * This method takes in weight as a parameter and the use that to calculate the price.
-     * @return price
-     */
     @Override
-    BigDecimal getFruitPrice(double weight) {
-        price = new BigDecimal(".38").setScale(2, RoundingMode.HALF_UP);
-        price = price.multiply(new BigDecimal(weight));
-        return price.setScale(2, RoundingMode.HALF_UP);
+    public BigDecimal getFruitPrice(double weight) {
+        return BASE_PRICE.multiply(new BigDecimal(weight)).setScale(2, RoundingMode.HALF_UP);
     }
 
-    /**
-     * This should return the description of the pepper
-     * @return description
-     */
     @Override
-    String getFruitDescription() {
+    public String getFruitDescription() {
         return description;
     }
 }
