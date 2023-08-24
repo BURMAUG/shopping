@@ -27,10 +27,16 @@ public class Strawberry extends Fruit {
     /**
      *  This indicates the price of the item per can.
      */
+<<<<<<< HEAD
     private BigDecimal price; //= new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
+=======
+    private BigDecimal price; // = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
+    private String type;
+>>>>>>> feature/book
     /**
      * This is how the item is described to the customer or the whole company at large.
      */
+<<<<<<< HEAD
     private String description;// = "Sweet, soft, red coloured fruit.";
     private double itemCount;
     Strawberry(String description, double itemCount){
@@ -38,7 +44,18 @@ public class Strawberry extends Fruit {
         this.itemCount = itemCount;
         price = getFruitPrice(itemCount);
     }
+=======
+    private String description; //= "Sweet, soft, red coloured fruit.";
+>>>>>>> feature/book
 
+    private double itemCount;
+    public Strawberry(double itemCount, String description){
+        this.itemCount = itemCount;
+        this.description = description;
+        setType(getFruitType());
+        this.type = getType();
+        this.price = getFruitPrice(itemCount);
+    }
     /**
      * <h2>Returns fruit name</h2>
      * This will always return strawberry
@@ -59,6 +76,7 @@ public class Strawberry extends Fruit {
     @Override
     BigDecimal getFruitPrice(double itemCount) {
         itemCount = Math.ceil(itemCount);
+        BigDecimal price = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
         price = price.multiply(new BigDecimal(itemCount)).setScale(2, RoundingMode.HALF_UP);
         return price;
     }
