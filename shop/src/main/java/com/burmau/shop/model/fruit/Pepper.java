@@ -1,6 +1,9 @@
 package com.burmau.shop.model.fruit;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
 
 import java.math.RoundingMode;
@@ -11,7 +14,7 @@ import java.math.BigDecimal;
  * Here the pepper will be measure in pounds as in the USA
  * and for pepper 1lbs = .3 cents
  */
-@Entity @Table
+@Entity
 @Setter @Getter
 @AllArgsConstructor @NoArgsConstructor
 @ToString
@@ -20,21 +23,13 @@ public class Pepper extends Fruit{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pepperID;
     private double weight;
-    private static final String NAME = "Pepper";
-    private String type;
+    private final String NAME = "Pepper";
     private BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
     private String description;//= "Hot and spicy pepper put with care!";
     Pepper(Long pepperID, double weight, String description){
         this.pepperID = pepperID;
         this.weight = weight;
         this.description = description;
-    }
-    public Pepper(double weight, String description){
-        this.pepperID = getPepperID();
-        this.weight = weight;
-        this.description = description;
-        this.price = getPrice();
-        this.type = getFruitType();
     }
 
     /**
@@ -49,6 +44,7 @@ public class Pepper extends Fruit{
 
     /**
      * This method takes in weight as a parameter and the use that to calculate the price.
+     * @param weight
      * @return price
      */
     @Override
