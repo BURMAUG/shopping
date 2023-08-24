@@ -55,8 +55,7 @@ public class FruitServiceImpl implements FruitService {
     @Override
     public void saveNewPepper(Pepper pepper) {
         //what if the pepper is null I should have a check for that.
-        pepper.setType(pepper.getType());
-        pepperRepository.save(pepper);
+        pepperRepository.saveNewPepper(pepper.getPrice(), pepper.getDescription());
     }
 
 
