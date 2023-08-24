@@ -31,7 +31,6 @@ public class Pepper extends Fruit {
         this.setPrice(getFruitPrice(weight));
         this.setWeight(weight);
         this.pepperID = pepperID;
-//        this.weight = weight;
         this.description = description;
     }
 
