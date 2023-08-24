@@ -21,7 +21,7 @@ public class Pepper extends Fruit{
     private Long pepperID;
     private double weight;
     private static final String NAME = "Pepper";
-    private String name;
+    private String type;
     private BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
     private String description;//= "Hot and spicy pepper put with care!";
     Pepper(Long pepperID, double weight, String description){
@@ -34,7 +34,7 @@ public class Pepper extends Fruit{
         this.weight = weight;
         this.description = description;
         this.price = getPrice();
-        this.name = getFruitType();
+        this.type = getFruitType();
     }
 
     /**
