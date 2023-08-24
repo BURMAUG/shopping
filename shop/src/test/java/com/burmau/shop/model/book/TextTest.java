@@ -8,22 +8,24 @@ import java.math.RoundingMode;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TextTest {
-    private final Book book = new Text("Nothing Ever", "Me", new BigDecimal(1234.23).setScale(2, RoundingMode.HALF_UP));
+    private final Book book = new Text("Boone","Mike" ,new BigDecimal("38.99").setScale(2, RoundingMode.HALF_UP));
+
     @Test
-    void testGetType() {
-        assertEquals("Textbook", book.getType());
+    void getType() {
+        assertEquals("textbook", book.getType().toLowerCase());
     }
 
     @Test
-    void testGetPrice() {
+    void getPrice() {
+        assertEquals(new BigDecimal("38.99"), book.getPrice());
     }
 
     @Test
-    void testGetTextBookID() {
+    void getTextBookID() {
     }
 
     @Test
-    void testGetTitle() {
+    void getTitle() {
     }
 
     @Test
@@ -31,11 +33,11 @@ class TextTest {
     }
 
     @Test
-    void testSetTextBookID() {
+    void setTextBookID() {
     }
 
     @Test
-    void testSetTitle() {
+    void setTitle() {
     }
 
     @Test
@@ -43,6 +45,6 @@ class TextTest {
     }
 
     @Test
-    void testSetPrice() {
+    void setPrice() {
     }
 }

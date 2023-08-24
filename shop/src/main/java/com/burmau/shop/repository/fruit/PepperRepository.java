@@ -11,8 +11,8 @@ import java.math.BigDecimal;
 
 
 public interface PepperRepository extends CrudRepository<Pepper, Long> {
-    @Modifying
-    @Transactional
-    @Query(value = "INSERT INTO Pepper(price, description) VALUES (:price, :description)", nativeQuery = true )
-    void saveNewPepper(@Param("price") BigDecimal price, @Param("description")String description);
+//    @Modifying
+//    @Transactional
+//    @Query(value = "INSERT INTO Pepper(price, description) VALUES (:price, :description)", nativeQuery = true )
+//    void saveNewPepper(@Param("price") BigDecimal price, @Param("description")String description);
 }
