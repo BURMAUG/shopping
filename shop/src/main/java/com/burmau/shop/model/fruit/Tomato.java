@@ -27,11 +27,20 @@ public class Tomato extends Fruit{
     /**
      * The price field is used to compute the price of the fruit per can.
      */
-    private BigDecimal price = new BigDecimal("1.99").setScale(2, RoundingMode.HALF_UP);
+    private BigDecimal price;//= new BigDecimal("1.99").setScale(2, RoundingMode.HALF_UP);
     /**
      * The description - describes the item to the customer or company at large.
      */
-    private final String description = "Red succulent fruit.";
+    private String description;
+    private double itemCount;
+    private String type;
+    public Tomato(double itemCount, String description, String type){
+        this.itemCount = itemCount;
+        this.description = description;
+        this.type = type;
+        setPrice(new BigDecimal("1,99").setScale(2,RoundingMode.HALF_UP));
+        this.price = getFruitPrice(itemCount);
+    }
 
     /**
      * <h2>Fruit Type</h2>

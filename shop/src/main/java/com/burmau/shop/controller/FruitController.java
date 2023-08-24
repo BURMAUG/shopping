@@ -30,18 +30,18 @@ public class FruitController {
     public Iterable<Tomato> getAllTomato(){
         return  fruitService.findAllTomato();
     }
-    @PostMapping("/peppers/{pepper}")
-    public void addPepper( @PathVariable Pepper pepper){
+    @PostMapping("/peppers/")
+    public void addPepper( @RequestBody Pepper pepper){
         fruitService.saveNewPepper(pepper);
     }
 
-    @PostMapping("/strawberries/{strawberry}")
-    public void addStrawberry(@PathVariable Strawberry strawberry){
+    @PostMapping("/strawberries/")
+    public void addStrawberry(@RequestBody Strawberry strawberry){
         fruitService.saveNewStrawberry(strawberry);
 
     }
-    @PostMapping("/tomatoes/{tomato}")
-    public void addTomato(@PathVariable Tomato tomato){
+    @PostMapping("/tomatoes/")
+    public void addTomato(@RequestBody Tomato tomato){
         fruitService.saveNewTomato(tomato);
     }
 

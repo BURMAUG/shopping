@@ -1,1 +1,0 @@
-insert into pepper(pepperID, price, weight, description, name) VALUES (4, 11.23, 2.20, 'Red Bell Pepper.', 'pepper');
