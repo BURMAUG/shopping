@@ -31,11 +31,7 @@ public class FruitController {
         return  fruitService.findAllTomato();
     }
     @PostMapping("/peppers/")
-<<<<<<< HEAD
     public void addPepper(@RequestBody Pepper pepper){
-=======
-    public void addPepper( @RequestBody Pepper pepper){
->>>>>>> feature/book
         fruitService.saveNewPepper(pepper);
     }
 
