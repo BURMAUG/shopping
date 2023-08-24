@@ -20,14 +20,9 @@ public class Pepper extends Fruit{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pepperID;
     private double weight;
-<<<<<<< HEAD
     private static final String NAME = "Pepper";
     private String name;
     private BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
-=======
-    private final String NAME = "Pepper";
-//    private BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
->>>>>>> feature/book
     private String description;//= "Hot and spicy pepper put with care!";
     Pepper(Long pepperID, double weight, String description){
         this.pepperID = pepperID;
