@@ -26,7 +26,7 @@ public class Strawberry extends Fruit {
     /**
      *  This indicates the price of the item per can.
      */
-    private BigDecimal price = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
+//    private BigDecimal price = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
     /**
      * This is how the item is describe to the customer or the whole company at large.
      */
@@ -52,6 +52,7 @@ public class Strawberry extends Fruit {
     @Override
     BigDecimal getFruitPrice(double itemCount) {
         itemCount = Math.ceil(itemCount);
+        BigDecimal price = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
         price = price.multiply(new BigDecimal(itemCount)).setScale(2, RoundingMode.HALF_UP);
         return price;
     }

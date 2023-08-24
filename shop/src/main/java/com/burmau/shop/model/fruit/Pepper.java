@@ -1,9 +1,6 @@
 package com.burmau.shop.model.fruit;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.RoundingMode;
@@ -16,15 +13,15 @@ import java.math.BigDecimal;
  */
 @Entity
 @Setter @Getter
-@AllArgsConstructor @NoArgsConstructor
 @ToString
+@NoArgsConstructor
 public class Pepper extends Fruit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pepperID;
     private double weight;
     private final String NAME = "Pepper";
-    private BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
+//    private BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
     private String description;//= "Hot and spicy pepper put with care!";
     Pepper(Long pepperID, double weight, String description){
         this.pepperID = pepperID;
@@ -49,6 +46,7 @@ public class Pepper extends Fruit{
      */
     @Override
     BigDecimal getFruitPrice(double weight) {
+        BigDecimal price = new BigDecimal(".38");
         price = price.multiply(new BigDecimal(weight));
         return price.setScale(2, RoundingMode.HALF_UP);
     }
