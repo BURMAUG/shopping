@@ -14,7 +14,8 @@ import java.math.*;
  */
 @Entity
 @Getter @Setter
-@AllArgsConstructor @NoArgsConstructor
+//@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class Strawberry extends Fruit {
     /**
@@ -26,12 +27,35 @@ public class Strawberry extends Fruit {
     /**
      *  This indicates the price of the item per can.
      */
-//    private BigDecimal price = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
+<<<<<<< HEAD
+    private BigDecimal price; //= new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
+=======
+    private BigDecimal price; // = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
+    private String type;
+>>>>>>> feature/book
     /**
-     * This is how the item is describe to the customer or the whole company at large.
+     * This is how the item is described to the customer or the whole company at large.
      */
-    private final String description = "Sweet, soft, red coloured fruit.";
+<<<<<<< HEAD
+    private String description;// = "Sweet, soft, red coloured fruit.";
+    private double itemCount;
+    Strawberry(String description, double itemCount){
+        this.description = description;
+        this.itemCount = itemCount;
+        price = getFruitPrice(itemCount);
+    }
+=======
+    private String description; //= "Sweet, soft, red coloured fruit.";
+>>>>>>> feature/book
 
+    private double itemCount;
+    public Strawberry(double itemCount, String description){
+        this.itemCount = itemCount;
+        this.description = description;
+        setType(getFruitType());
+        this.type = getType();
+        this.price = getFruitPrice(itemCount);
+    }
     /**
      * <h2>Returns fruit name</h2>
      * This will always return strawberry
