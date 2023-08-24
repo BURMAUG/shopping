@@ -22,19 +22,14 @@ public class Pepper extends Fruit{
     private double weight;
     private static final String NAME = "Pepper";
     private String type;
-    private BigDecimal price = new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
+    private BigDecimal price ;//= new BigDecimal(".30").setScale(2, RoundingMode.HALF_UP);
     private String description;//= "Hot and spicy pepper put with care!";
-    Pepper(Long pepperID, double weight, String description){
-        this.pepperID = pepperID;
-        this.weight = weight;
-        this.description = description;
-    }
+
     public Pepper(double weight, String description){
         this.pepperID = getPepperID();
         this.weight = weight;
         this.description = description;
-        this.price = getPrice();
-        this.type = getFruitType();
+        price = getFruitPrice(weight);
     }
 
     /**
@@ -53,7 +48,7 @@ public class Pepper extends Fruit{
      */
     @Override
     BigDecimal getFruitPrice(double weight) {
-        BigDecimal price = new BigDecimal(".38");
+        price = new BigDecimal(".38").setScale(2, RoundingMode.HALF_UP);
         price = price.multiply(new BigDecimal(weight));
         return price.setScale(2, RoundingMode.HALF_UP);
     }

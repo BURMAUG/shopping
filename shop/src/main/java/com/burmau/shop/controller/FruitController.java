@@ -30,8 +30,8 @@ public class FruitController {
     public Iterable<Tomato> getAllTomato(){
         return  fruitService.findAllTomato();
     }
-    @PostMapping("/peppers/{pepper}")
-    public void addPepper( @PathVariable Pepper pepper){
+    @PostMapping("/peppers/")
+    public void addPepper( @RequestBody Pepper pepper){
         fruitService.saveNewPepper(pepper);
     }
 
