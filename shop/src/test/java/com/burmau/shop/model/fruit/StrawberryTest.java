@@ -12,7 +12,7 @@ class StrawberryTest {
 
     @Test
     void getFruitType() {
-        assertEquals("strawberry", strawberry.getFruitType().toLowerCase());
+        assertEquals("strawberry", strawberry.type().toLowerCase());
     }
 
     @Test
@@ -23,6 +23,6 @@ class StrawberryTest {
 
     @Test
     void getFruitDescription() {
-        assertEquals("Sweet, soft, red coloured fruit.".toLowerCase(), strawberry.getFruitDescription().toLowerCase());
+        assertEquals("Sweet, soft, red coloured fruit.".toLowerCase(), strawberry.description().toLowerCase());
     }
 }

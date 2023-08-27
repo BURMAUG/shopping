@@ -47,7 +47,7 @@ public class Tomato extends Fruit{
      * @return fruit name.
      */
     @Override
-    String getFruitType() {
+    String type() {
         return "Tomato";
     }
 
@@ -68,7 +68,7 @@ public class Tomato extends Fruit{
      * @return the description of the item.
      */
     @Override
-    String getFruitDescription() {
+    String description() {
         return description ;
     }
 }

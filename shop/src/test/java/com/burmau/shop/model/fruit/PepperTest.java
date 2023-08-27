@@ -10,7 +10,7 @@ class PepperTest {
     private final Fruit pepper = new Pepper(2.2, "Hot and spicy pepper put with care!");
     @Test
     void getFruitType() {
-        assertEquals("Pepper", pepper.getFruitType());
+        assertEquals("Pepper", pepper.type());
     }
 
     @Test
@@ -22,7 +22,7 @@ class PepperTest {
 
     @Test
     void getFruitDescription() {
-        String value = pepper.getFruitDescription();
+        String value = pepper.description();
         assertEquals("Hot and spicy pepper put with care!".toLowerCase(), value.toLowerCase());
     }
 }

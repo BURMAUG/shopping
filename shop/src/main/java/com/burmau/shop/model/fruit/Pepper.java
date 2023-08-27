@@ -8,7 +8,8 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "pepper")
-@Setter @Getter
+@Setter
+@Getter
 @ToString
 @NoArgsConstructor
 public class Pepper extends Fruit {
@@ -37,7 +38,7 @@ public class Pepper extends Fruit {
     public Pepper(double weight, String description) {
         this.weight = weight;
         this.description = description;
-        this.type = getFruitType();
+        this.type = type();
     }
 
     public void setWeight(double weight) {
@@ -46,7 +47,7 @@ public class Pepper extends Fruit {
     }
 
     @Override
-    public String getFruitType() {
+    public String type() {
         return NAME;
     }
 
@@ -56,7 +57,7 @@ public class Pepper extends Fruit {
     }
 
     @Override
-    public String getFruitDescription() {
+    public String description() {
         return description;
     }
 }

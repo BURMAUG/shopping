@@ -42,7 +42,7 @@ public class Strawberry extends Fruit {
     public Strawberry(double itemCount, String description){
         this.itemCount = itemCount;
         this.description = description;
-        setType(getFruitType());
+        setType(type());
         this.type = getType();
         this.price = getFruitPrice(itemCount);
     }
@@ -53,7 +53,7 @@ public class Strawberry extends Fruit {
      * @return Strawberry.
      */
     @Override
-    String getFruitType() {
+    String type() {
         return "Strawberry";
     }
 
@@ -76,7 +76,7 @@ public class Strawberry extends Fruit {
      * @return description - The sweet, soft, red fruit.
      */
     @Override
-    String getFruitDescription() {
+    String description() {
         return description;
     }
 }

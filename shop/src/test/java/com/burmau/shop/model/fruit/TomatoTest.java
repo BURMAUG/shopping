@@ -9,7 +9,7 @@ class TomatoTest {
     private final Fruit tomato = new Tomato();
     @Test
     void getFruitType() {
-        assertEquals("tomato", tomato.getFruitType().toLowerCase());
+        assertEquals("tomato", tomato.type().toLowerCase());
     }
 
     @Test
@@ -20,7 +20,7 @@ class TomatoTest {
 
     @Test
     void getFruitDescription() {
-        assertEquals("red succulent fruit.", tomato.getFruitDescription().toLowerCase());
+        assertEquals("red succulent fruit.", tomato.description().toLowerCase());
     }
 
     @Test
