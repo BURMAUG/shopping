@@ -9,18 +9,18 @@ class TomatoTest {
     private final Fruit tomato = new Tomato();
     @Test
     void getFruitType() {
-        assertEquals("tomato", tomato.getFruitType().toLowerCase());
+        assertEquals("tomato", tomato.type().toLowerCase());
     }
 
     @Test
     void getFruitPrice() {
-        BigDecimal price = tomato.getFruitPrice(1.0);
+        BigDecimal price = tomato.price(1.0);
         assertEquals(new BigDecimal("1.99"), price);
     }
 
     @Test
     void getFruitDescription() {
-        assertEquals("red succulent fruit.", tomato.getFruitDescription().toLowerCase());
+        assertEquals("red succulent fruit.", tomato.description().toLowerCase());
     }
 
     @Test

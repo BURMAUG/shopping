@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  */
 
 public abstract class Fruit {
-    abstract String getFruitType();
-    abstract BigDecimal getFruitPrice(double weightOfItem);
-    abstract String getFruitDescription();
+    abstract String type();
+    abstract BigDecimal price(double weightOfItem);
+    abstract String description();
 }

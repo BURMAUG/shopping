@@ -39,7 +39,7 @@ public class Tomato extends Fruit{
         this.description = description;
         this.type = type;
         setPrice(new BigDecimal("1,99").setScale(2,RoundingMode.HALF_UP));
-        this.price = getFruitPrice(itemCount);
+        this.price = price(itemCount);
     }
 
     /**
@@ -47,7 +47,7 @@ public class Tomato extends Fruit{
      * @return fruit name.
      */
     @Override
-    String getFruitType() {
+    String type() {
         return "Tomato";
     }
 
@@ -57,7 +57,7 @@ public class Tomato extends Fruit{
      * @return price of the item
      */
     @Override
-    BigDecimal getFruitPrice(double itemCount) {
+    BigDecimal price(double itemCount) {
         itemCount = Math.ceil(itemCount);
         price = price.multiply(new BigDecimal(itemCount));
         return price;
@@ -68,7 +68,7 @@ public class Tomato extends Fruit{
      * @return the description of the item.
      */
     @Override
-    String getFruitDescription() {
+    String description() {
         return description ;
     }
 }

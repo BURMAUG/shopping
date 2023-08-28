@@ -12,17 +12,17 @@ class StrawberryTest {
 
     @Test
     void getFruitType() {
-        assertEquals("strawberry", strawberry.getFruitType().toLowerCase());
+        assertEquals("strawberry", strawberry.type().toLowerCase());
     }
 
     @Test
     void getFruitPrice() {
-        BigDecimal p = strawberry.getFruitPrice(.2);
+        BigDecimal p = strawberry.price(.2);
         assertEquals(new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP), p);
     }
 
     @Test
     void getFruitDescription() {
-        assertEquals("Sweet, soft, red coloured fruit.".toLowerCase(), strawberry.getFruitDescription().toLowerCase());
+        assertEquals("Sweet, soft, red coloured fruit.".toLowerCase(), strawberry.description().toLowerCase());
     }
 }
