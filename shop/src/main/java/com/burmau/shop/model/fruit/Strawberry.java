@@ -1,9 +1,6 @@
 package com.burmau.shop.model.fruit;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.*;
@@ -13,8 +10,9 @@ import java.math.*;
  *  It has the fields strawberryID, price, and description.
  */
 @Entity
+@Table(name = "strawberry")
 @Getter @Setter
-//@AllArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class Strawberry extends Fruit {
@@ -27,23 +25,32 @@ public class Strawberry extends Fruit {
     /**
      *  This indicates the price of the item per can.
      */
-    private BigDecimal price; //= new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
-    private String type;
+    private static final String CATEGORY = "Strawberry";
+    private static final BigDecimal BASE_PRICE = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
+    private BigDecimal price = BASE_PRICE;
+    private String type = CATEGORY;
     /**
      * This is how the item is described to the customer or the whole company at large.
      */
     private String description;// = "Sweet, soft, red coloured fruit.";
     private double itemCount;
-    Strawberry(String description, double itemCount){
+
+    Strawberry(double itemCount, String description){
+        this.setType(type);
+        this.setPrice(getFruitPrice(itemCount));
+//        this.itemCount = itemCount;
+        this.setItemCount(itemCount);
         this.description = description;
-        this.itemCount = itemCount;
-        price = getFruitPrice(itemCount);
     }
-    public Strawberry(double itemCount, String description){
+    Strawberry(Long strawberryID, double itemCount, String description){
+        this.strawberryID = strawberryID;
+        this.setPrice(getFruitPrice(itemCount));
         this.itemCount = itemCount;
         this.description = description;
-        setType(type());
-        this.type = getType();
+        this.setType(type);
+    }
+    public void setItemCount(double itemCount) {
+        this.itemCount = itemCount;
         this.price = getFruitPrice(itemCount);
     }
     /**
@@ -54,7 +61,7 @@ public class Strawberry extends Fruit {
      */
     @Override
     String type() {
-        return "Strawberry";
+        return type;
     }
 
     /**
@@ -65,10 +72,7 @@ public class Strawberry extends Fruit {
      */
     @Override
     BigDecimal getFruitPrice(double itemCount) {
-        itemCount = Math.ceil(itemCount);
-        BigDecimal price = new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP);
-        price = price.multiply(new BigDecimal(itemCount)).setScale(2, RoundingMode.HALF_UP);
-        return price;
+        return BASE_PRICE.multiply(new BigDecimal(Math.ceil(itemCount))).setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
