@@ -12,12 +12,12 @@ class TextTest {
 
     @Test
     void getType() {
-        assertEquals("textbook", book.getType().toLowerCase());
+        assertEquals("textbook", book.type().toLowerCase());
     }
 
     @Test
     void getPrice() {
-        assertEquals(new BigDecimal("38.99"), book.getPrice());
+        assertEquals(new BigDecimal("38.99"), book.price());
     }
 
     @Test

@@ -30,12 +30,12 @@ public class Text extends Book {
 
     }
     @Override
-    String getType() {
+    String type() {
         return TYPE;
     }
 
     @Override
-    BigDecimal getPrice() {
+    BigDecimal price() {
         return price;
     }
 }
