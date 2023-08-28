@@ -72,7 +72,7 @@ public class Strawberry extends Fruit {
      */
     @Override
     BigDecimal getFruitPrice(double itemCount) {
-        return BASE_PRICE.multiply(new BigDecimal(Math.ceil(itemCount))).setScale(2, RoundingMode.HALF_UP);
+        return BASE_PRICE.multiply(BigDecimal.valueOf(Math.ceil(itemCount))).setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
