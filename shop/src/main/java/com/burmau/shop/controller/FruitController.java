@@ -14,41 +14,29 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/")
+@RequestMapping("api/v1/fruit")
 @AllArgsConstructor
 public class FruitController {
     private final FruitService fruitService;
     private final BookService bookService;
 
-    @GetMapping("/fruit")
+    @GetMapping("/")
     public Iterable<Fruit> getAllFruit(){
         return fruitService.findAllFruit();
     }
-    @GetMapping("/fruit/peppers")
+    @GetMapping("/peppers")
     public Iterable<Pepper> getAllPepper(){
         return fruitService.findAllPepper();
     }
-    @GetMapping("/fruit/strawberries")
+    @GetMapping("/strawberries")
     public Iterable<Strawberry> getAllStrawberry(){
         return fruitService.findAllStrawberry();
     }
-    @GetMapping("/fruit/tomatoes")
+    @GetMapping("/tomatoes")
     public Iterable<Tomato> getAllTomato(){
         return  fruitService.findAllTomato();
     }
 
-    @GetMapping("/book")
-    public Iterable<Book> getAllBooks(){
-        return bookService.findAllBooks();
-    }
-    @GetMapping("/book/text")
-    public Iterable<Text> getAllTextbooks(){
-        return bookService.findAllTextbooks();
-    }
-    @GetMapping("/book/note")
-    public  Iterable<Note> getAllNotebooks(){
-        return bookService.findAllNotebooks();
-    }
     //POST
     @PostMapping("/peppers/")
     public void addPepper( @RequestBody Pepper pepper){
