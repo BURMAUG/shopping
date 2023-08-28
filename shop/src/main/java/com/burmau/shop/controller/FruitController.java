@@ -1,9 +1,14 @@
 package com.burmau.shop.controller;
 
+import com.burmau.shop.model.book.Book;
+import com.burmau.shop.model.book.Note;
+import com.burmau.shop.model.book.Text;
 import com.burmau.shop.model.fruit.Fruit;
 import com.burmau.shop.model.fruit.Pepper;
 import com.burmau.shop.model.fruit.Strawberry;
 import com.burmau.shop.model.fruit.Tomato;
+import com.burmau.shop.repository.book.TextBookRepository;
+import com.burmau.shop.service.BookService;
 import com.burmau.shop.service.FruitService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class FruitController {
     private final FruitService fruitService;
+    private final BookService bookService;
 
     @GetMapping("/")
     public Iterable<Fruit> getAllFruit(){
@@ -30,6 +36,8 @@ public class FruitController {
     public Iterable<Tomato> getAllTomato(){
         return  fruitService.findAllTomato();
     }
+
+    //POST
     @PostMapping("/peppers/")
     public void addPepper( @RequestBody Pepper pepper){
         fruitService.saveNewPepper(pepper);

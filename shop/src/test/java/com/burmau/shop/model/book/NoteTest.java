@@ -13,13 +13,13 @@ class NoteTest {
 
     @Test
     void getType() {
-        String type = book.getType();
+        String type = book.type();
         assertEquals("Notebook", type);
     }
 
     @Test
     void getPrice() {
-        BigDecimal price  = book.getPrice();
+        BigDecimal price  = book.price();
         assertEquals(new BigDecimal("1.2").setScale(2, RoundingMode.HALF_UP), price);
     }
 
@@ -45,7 +45,7 @@ class NoteTest {
     @Test
     void setPrice() {
         book.setPrice(new BigDecimal("1.23"));
-        assertEquals(new BigDecimal("14.76"), book.getPrice());
+        assertEquals(new BigDecimal("14.76"), book.price());
     }
 
     @Test

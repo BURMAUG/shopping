@@ -25,12 +25,12 @@ public class Note extends Book {
         this.pageCount = pageCount;
     }
     @Override
-    String getType() {
+    String type() {
         return TYPE;
     }
 
     @Override
-    BigDecimal getPrice() {
+    BigDecimal price() {
         this.price = price.multiply(new BigDecimal(String.valueOf(pageCount)));
         return price;
     }
