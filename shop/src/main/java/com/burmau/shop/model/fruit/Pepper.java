@@ -53,7 +53,7 @@ public class Pepper extends Fruit {
 
     @Override
     public BigDecimal getFruitPrice(double weight) {
-        return BASE_PRICE.multiply(new BigDecimal(weight)).setScale(2, RoundingMode.HALF_UP);
+        return BASE_PRICE.multiply(BigDecimal.valueOf(weight)).setScale(2, RoundingMode.HALF_UP);
     }
 
     @Override
