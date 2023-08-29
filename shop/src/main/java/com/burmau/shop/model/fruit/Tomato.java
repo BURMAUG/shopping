@@ -27,19 +27,25 @@ public class Tomato extends Fruit{
     /**
      * The price field is used to compute the price of the fruit per can.
      */
-    private BigDecimal price;//= new BigDecimal("1.99").setScale(2, RoundingMode.HALF_UP);
+    private static final BigDecimal BASE_PRICE = new BigDecimal("1.99").setScale(2, RoundingMode.HALF_UP);
+    private BigDecimal price = BASE_PRICE;
     /**
      * The description - describes the item to the customer or company at large.
      */
     private String description;
-    private double itemCount;
-    private String type;
-    public Tomato(double itemCount, String description, String type){
-        this.itemCount = itemCount;
+    private double weight;
+    private static final String CATEGORY = "Tomato";
+    private String type = CATEGORY;
+    public Tomato(double weight, String description){
+        this.setType(type());
+        this.setWeight(weight);
+        this.setPrice(getFruitPrice(weight));
         this.description = description;
-        this.type = type;
-        setPrice(new BigDecimal("1,99").setScale(2,RoundingMode.HALF_UP));
-        this.price = getFruitPrice(itemCount);
+    }
+
+    public void setWeight(double weight){
+        this.weight = weight;
+        this.price = getFruitPrice(weight);
     }
 
     /**
@@ -53,14 +59,12 @@ public class Tomato extends Fruit{
 
     /**
      * <h2>Price</h2>
-     * @param itemCount - indict the count of the item in store.
+     * @param weight - indict the count of the item in store.
      * @return price of the item
      */
     @Override
-    BigDecimal getFruitPrice(double itemCount) {
-        itemCount = Math.ceil(itemCount);
-        price = price.multiply(new BigDecimal(itemCount));
-        return price;
+    BigDecimal getFruitPrice(double weight) {
+        return BASE_PRICE.multiply(BigDecimal.valueOf(weight)).setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
