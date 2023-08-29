@@ -1,7 +1,6 @@
 package com.burmau.shop.model.book;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.security.core.parameters.P;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
