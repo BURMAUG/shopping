@@ -1,6 +1,6 @@
 package com.burmau.shop.controller;
 
-import com.burmau.shop.model.book.Book;
+import com.burmau.shop.model.book.AbstractBook;
 import com.burmau.shop.model.book.Note;
 import com.burmau.shop.model.book.Text;
 import com.burmau.shop.service.BookService;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookController {
     private final BookService bookService;
     @GetMapping("/")
-    public Iterable<Book> getAllBooks() {
+    public Iterable<AbstractBook> getAllBooks() {
         return bookService.findAllBooks();
     }
 

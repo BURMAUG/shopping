@@ -1,13 +1,9 @@
 package com.burmau.shop.controller;
 
-import com.burmau.shop.model.book.Book;
-import com.burmau.shop.model.book.Note;
-import com.burmau.shop.model.book.Text;
 import com.burmau.shop.model.fruit.Fruit;
 import com.burmau.shop.model.fruit.Pepper;
 import com.burmau.shop.model.fruit.Strawberry;
 import com.burmau.shop.model.fruit.Tomato;
-import com.burmau.shop.repository.book.TextBookRepository;
 import com.burmau.shop.service.BookService;
 import com.burmau.shop.service.FruitService;
 import lombok.AllArgsConstructor;

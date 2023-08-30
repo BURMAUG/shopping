@@ -13,7 +13,7 @@ import java.math.RoundingMode;
 @ToString
 @AllArgsConstructor @NoArgsConstructor
 @Entity
-public class Note extends Book {
+public class Note extends AbstractBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long noteID;

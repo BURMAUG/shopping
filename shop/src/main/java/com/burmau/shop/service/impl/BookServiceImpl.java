@@ -1,6 +1,6 @@
 package com.burmau.shop.service.impl;
 
-import com.burmau.shop.model.book.Book;
+import com.burmau.shop.model.book.AbstractBook;
 import com.burmau.shop.model.book.Note;
 import com.burmau.shop.model.book.Text;
 import com.burmau.shop.repository.book.NoteRepository;
@@ -26,7 +26,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Iterable<Book> findAllBooks() {
+    public Iterable<AbstractBook> findAllBooks() {
         return null;
     }
 
