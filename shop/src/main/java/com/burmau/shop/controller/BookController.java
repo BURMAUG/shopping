@@ -1,8 +1,8 @@
 package com.burmau.shop.controller;
 
 import com.burmau.shop.model.book.AbstractBook;
-import com.burmau.shop.model.book.Note;
-import com.burmau.shop.model.book.Text;
+import com.burmau.shop.model.book.Notebook;
+import com.burmau.shop.model.book.Textbook;
 import com.burmau.shop.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,12 +20,12 @@ public class BookController {
     }
 
     @GetMapping("/text")
-    public Iterable<Text> getAllTextbooks() {
+    public Iterable<Textbook> getAllTextbooks() {
         return bookService.findAllTextbooks();
     }
 
     @GetMapping("/note")
-    public Iterable<Note> getAllNotebooks() {
+    public Iterable<Notebook> getAllNotebooks() {
         return bookService.findAllNotebooks();
     }
 }

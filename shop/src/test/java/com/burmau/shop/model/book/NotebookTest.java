@@ -7,8 +7,8 @@ import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class NoteTest {
-    private final Note book = new Note(12);
+class NotebookTest {
+    private final Notebook book = new Notebook(12);
 
     @Test
     void getType() {

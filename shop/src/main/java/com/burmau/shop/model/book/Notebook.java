@@ -13,7 +13,7 @@ import java.math.RoundingMode;
 @ToString
 @AllArgsConstructor @NoArgsConstructor
 @Entity
-public class Note extends AbstractBook {
+public class Notebook extends AbstractBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long noteID;
@@ -21,7 +21,7 @@ public class Note extends AbstractBook {
     private int pageCount;
     private final String TYPE = "Notebook";
 
-    Note(int pageCount){
+    Notebook(int pageCount){
         this.pageCount = pageCount;
     }
     @Override

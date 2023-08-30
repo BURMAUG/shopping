@@ -7,8 +7,8 @@ import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TextTest {
-    private final AbstractBook abstractBook = new Text("Boone","Mike" ,new BigDecimal("38.99").setScale(2, RoundingMode.HALF_UP));
+class TextbookTest {
+    private final AbstractBook abstractBook = new Textbook("Boone","Mike" ,new BigDecimal("38.99").setScale(2, RoundingMode.HALF_UP));
 
     @Test
     void getType() {

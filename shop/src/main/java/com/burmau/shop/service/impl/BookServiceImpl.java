@@ -1,8 +1,8 @@
 package com.burmau.shop.service.impl;
 
 import com.burmau.shop.model.book.AbstractBook;
-import com.burmau.shop.model.book.Note;
-import com.burmau.shop.model.book.Text;
+import com.burmau.shop.model.book.Notebook;
+import com.burmau.shop.model.book.Textbook;
 import com.burmau.shop.repository.book.NoteRepository;
 import com.burmau.shop.repository.book.TextBookRepository;
 import com.burmau.shop.service.BookService;
@@ -15,13 +15,13 @@ public class BookServiceImpl implements BookService {
     private final TextBookRepository textBookRepository;
     private final NoteRepository noteRepository;
     @Override
-    public void add(Note book) {
+    public void add(Notebook book) {
         noteRepository.save(book);
 
     }
 
     @Override
-    public void add(Text book) {
+    public void add(Textbook book) {
         textBookRepository.save(book);
     }
 
@@ -31,12 +31,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Iterable<Text> findAllTextbooks() {
+    public Iterable<Textbook> findAllTextbooks() {
         return null;
     }
 
     @Override
-    public Iterable<Note> findAllNotebooks() {
+    public Iterable<Notebook> findAllNotebooks() {
         return null;
     }
 }
