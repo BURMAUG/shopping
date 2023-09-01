@@ -24,16 +24,19 @@ public class Notebook extends AbstractBook {
     private final String TYPE = "Notebook";
 
     Notebook(int pageCount){
+        this.setPageCount(pageCount);
+    }
+    void setPageCount(int pageCount){
         this.pageCount = pageCount;
+        this.noteBookPrice = getNoteBookPrice(pageCount);
+    }
+    BigDecimal getNoteBookPrice(int pageCount){
+        return BASE_PRICE.multiply(BigDecimal.valueOf(pageCount).setScale(2, RoundingMode.HALF_UP));
     }
     @Override
     String type() {
         return TYPE;
     }
 
-    @Override
-    BigDecimal price() {
-        this. = BASE_PRICE.multiply(new BigDecimal(String.valueOf(pageCount)));
-        return BASE_PRICE;
-    }
+
 }

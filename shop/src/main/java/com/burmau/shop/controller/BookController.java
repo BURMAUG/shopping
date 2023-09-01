@@ -5,9 +5,7 @@ import com.burmau.shop.model.book.Notebook;
 import com.burmau.shop.model.book.Textbook;
 import com.burmau.shop.service.BookService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/books")
@@ -27,5 +25,9 @@ public class BookController {
     @GetMapping("/note")
     public Iterable<Notebook> getAllNotebooks() {
         return bookService.findAllNotebooks();
+    }
+    @PostMapping("/note")
+    public void addNotebook(@RequestBody Notebook notebook){
+        bookService.add(notebook);
     }
 }

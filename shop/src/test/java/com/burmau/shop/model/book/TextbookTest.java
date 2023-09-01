@@ -17,7 +17,7 @@ class TextbookTest {
 
     @Test
     void getPrice() {
-        assertEquals(new BigDecimal("38.99"), abstractBook.price());
+        assertEquals(new BigDecimal("38.99"), abstractBook.notebookPrice());
     }
 
     @Test

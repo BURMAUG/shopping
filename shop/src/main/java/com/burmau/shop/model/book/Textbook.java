@@ -33,9 +33,4 @@ public class Textbook extends AbstractBook{
     String type() {
         return TYPE;
     }
-
-    @Override
-    BigDecimal price() {
-        return price;
-    }
 }

@@ -18,7 +18,7 @@ class NotebookTest {
 
     @Test
     void getPrice() {
-        BigDecimal price  = book.price();
+        BigDecimal price  = book.notebookPrice();
         assertEquals(new BigDecimal("1.2").setScale(2, RoundingMode.HALF_UP), price);
     }
 
@@ -44,7 +44,7 @@ class NotebookTest {
     @Test
     void setPrice() {
         book.setPrice(new BigDecimal("1.23"));
-        assertEquals(new BigDecimal("14.76"), book.price());
+        assertEquals(new BigDecimal("14.76"), book.notebookPrice());
     }
 
     @Test
