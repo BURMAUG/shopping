@@ -15,7 +15,7 @@ import java.math.RoundingMode;
 @Setter @Getter
 @AllArgsConstructor @NoArgsConstructor
 @Entity
-public class Textbook extends AbstractBook {
+public class Textbook extends AbstractBook{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long textBookID;

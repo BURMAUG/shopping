@@ -17,7 +17,9 @@ public class Notebook extends AbstractBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long noteID;
-    private BigDecimal price = new BigDecimal(".1").setScale(2, RoundingMode.HALF_UP);
+    private static final BigDecimal BASE_PRICE = new BigDecimal(".1").setScale(2, RoundingMode.HALF_UP);
+
+    private BigDecimal noteBookPrice = BASE_PRICE;
     private int pageCount;
     private final String TYPE = "Notebook";
 
@@ -31,7 +33,7 @@ public class Notebook extends AbstractBook {
 
     @Override
     BigDecimal price() {
-        this.price = price.multiply(new BigDecimal(String.valueOf(pageCount)));
-        return price;
+        this. = BASE_PRICE.multiply(new BigDecimal(String.valueOf(pageCount)));
+        return BASE_PRICE;
     }
 }
