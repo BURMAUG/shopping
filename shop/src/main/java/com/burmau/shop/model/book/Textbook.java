@@ -15,7 +15,7 @@ import java.math.RoundingMode;
 @Setter @Getter
 @AllArgsConstructor @NoArgsConstructor
 @Entity
-public class Text extends Book {
+public class Textbook extends AbstractBook{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long textBookID;
@@ -23,7 +23,7 @@ public class Text extends Book {
     private String authorName;
     private final String TYPE = "Textbook";
     private BigDecimal price = new BigDecimal("1").setScale(2, RoundingMode.HALF_UP);
-    Text(String title, String authorName, BigDecimal price){
+    Textbook(String title, String authorName, BigDecimal price){
         this.title = title;
         this.authorName = authorName;
         this.price = price;
@@ -32,10 +32,5 @@ public class Text extends Book {
     @Override
     String type() {
         return TYPE;
-    }
-
-    @Override
-    BigDecimal price() {
-        return price;
     }
 }

@@ -21,6 +21,7 @@ public class Strawberry extends Fruit{
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "strawberry_id", nullable = false)
     private Long strawberryID;
     /**
      *  This indicates the price of the item per can.

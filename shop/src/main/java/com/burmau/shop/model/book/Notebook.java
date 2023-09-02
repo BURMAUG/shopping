@@ -13,25 +13,30 @@ import java.math.RoundingMode;
 @ToString
 @AllArgsConstructor @NoArgsConstructor
 @Entity
-public class Note extends Book {
+public class Notebook extends AbstractBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long noteID;
-    private BigDecimal price = new BigDecimal(".1").setScale(2, RoundingMode.HALF_UP);
+    private Long noteBookID;
+    private static final BigDecimal BASE_PRICE = new BigDecimal(".1").setScale(2, RoundingMode.HALF_UP);
+
+    private BigDecimal noteBookPrice = BASE_PRICE;
     private int pageCount;
     private final String TYPE = "Notebook";
 
-    Note(int pageCount){
+    Notebook(int pageCount){
+        this.setPageCount(pageCount);
+    }
+    void setPageCount(int pageCount){
         this.pageCount = pageCount;
+        this.noteBookPrice = getNoteBookPrice(pageCount);
+    }
+    BigDecimal getNoteBookPrice(int pageCount){
+        return BASE_PRICE.multiply(BigDecimal.valueOf(pageCount).setScale(2, RoundingMode.HALF_UP));
     }
     @Override
     String type() {
         return TYPE;
     }
 
-    @Override
-    BigDecimal price() {
-        this.price = price.multiply(new BigDecimal(String.valueOf(pageCount)));
-        return price;
-    }
+
 }

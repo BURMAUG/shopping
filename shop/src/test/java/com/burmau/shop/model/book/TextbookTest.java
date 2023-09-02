@@ -7,17 +7,17 @@ import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TextTest {
-    private final Book book = new Text("Boone","Mike" ,new BigDecimal("38.99").setScale(2, RoundingMode.HALF_UP));
+class TextbookTest {
+    private final AbstractBook abstractBook = new Textbook("Boone","Mike" ,new BigDecimal("38.99").setScale(2, RoundingMode.HALF_UP));
 
     @Test
     void getType() {
-        assertEquals("textbook", book.type().toLowerCase());
+        assertEquals("textbook", abstractBook.type().toLowerCase());
     }
 
     @Test
     void getPrice() {
-        assertEquals(new BigDecimal("38.99"), book.price());
+        assertEquals(new BigDecimal("38.99"), abstractBook.notebookPrice());
     }
 
     @Test

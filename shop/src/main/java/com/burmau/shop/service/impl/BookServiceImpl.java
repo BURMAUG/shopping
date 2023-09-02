@@ -1,13 +1,17 @@
 package com.burmau.shop.service.impl;
 
-import com.burmau.shop.model.book.Book;
-import com.burmau.shop.model.book.Note;
-import com.burmau.shop.model.book.Text;
+import com.burmau.shop.model.book.AbstractBook;
+import com.burmau.shop.model.book.Notebook;
+import com.burmau.shop.model.book.Textbook;
 import com.burmau.shop.repository.book.NoteRepository;
 import com.burmau.shop.repository.book.TextBookRepository;
 import com.burmau.shop.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -15,28 +19,36 @@ public class BookServiceImpl implements BookService {
     private final TextBookRepository textBookRepository;
     private final NoteRepository noteRepository;
     @Override
-    public void add(Note book) {
+    public void add(Notebook book) {
         noteRepository.save(book);
 
     }
 
     @Override
-    public void add(Text book) {
+    public void add(Textbook book) {
         textBookRepository.save(book);
     }
 
     @Override
-    public Iterable<Book> findAllBooks() {
-        return null;
+    public Iterable<AbstractBook> findAllBooks() {
+        List<AbstractBook> b = new ArrayList<>();
+        Iterator<Textbook> textbookIterator = textBookRepository.findAll().iterator();
+        Iterator<Notebook> notebookIterator = noteRepository.findAll().iterator();
+
+        while(textbookIterator.hasNext())
+            b.add(textbookIterator.next());
+        while (notebookIterator.hasNext())
+            b.add(notebookIterator.next());
+        return b;
     }
 
     @Override
-    public Iterable<Text> findAllTextbooks() {
-        return null;
+    public Iterable<Textbook> findAllTextbooks() {
+        return textBookRepository.findAll();
     }
 
     @Override
-    public Iterable<Note> findAllNotebooks() {
-        return null;
+    public Iterable<Notebook> findAllNotebooks() {
+        return noteRepository.findAll();
     }
 }
