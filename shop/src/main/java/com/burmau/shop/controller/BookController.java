@@ -17,16 +17,16 @@ public class BookController {
         return bookService.findAllBooks();
     }
 
-    @GetMapping("/text")
+    @GetMapping("/textbook")
     public Iterable<Textbook> getAllTextbooks() {
         return bookService.findAllTextbooks();
     }
 
-    @GetMapping("/note")
+    @GetMapping("/notebook")
     public Iterable<Notebook> getAllNotebooks() {
         return bookService.findAllNotebooks();
     }
-    @PostMapping("/note")
+    @PostMapping("/notebook")
     public void addNotebook(@RequestBody Notebook notebook){
         bookService.add(notebook);
     }

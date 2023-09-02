@@ -16,7 +16,7 @@ import java.math.RoundingMode;
 public class Notebook extends AbstractBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long noteID;
+    private Long noteBookID;
     private static final BigDecimal BASE_PRICE = new BigDecimal(".1").setScale(2, RoundingMode.HALF_UP);
 
     private BigDecimal noteBookPrice = BASE_PRICE;

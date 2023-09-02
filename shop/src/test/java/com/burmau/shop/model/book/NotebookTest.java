@@ -24,8 +24,8 @@ class NotebookTest {
 
     @Test
     void getNoteID() {
-        book.setNoteID(13L);
-        Long id = book.getNoteID();
+        book.setNoteBookID(13L);
+        Long id = book.getNoteBookID();
         assertEquals(13L, id);
     }
 
@@ -37,8 +37,8 @@ class NotebookTest {
 
     @Test
     void setNoteID() {
-        book.setNoteID(12L);
-        assertEquals(12L, book.getNoteID());
+        book.setNoteBookID(12L);
+        assertEquals(12L, book.getNoteBookID());
     }
 
     @Test
