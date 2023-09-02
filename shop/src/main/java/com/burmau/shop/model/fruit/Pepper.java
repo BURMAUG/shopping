@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @Getter
 @ToString
 @NoArgsConstructor
-public class Pepper extends Fruit {
+public class Pepper extends AbstractFruit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pepperID;
