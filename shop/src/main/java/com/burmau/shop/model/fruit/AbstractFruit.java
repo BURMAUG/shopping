@@ -5,7 +5,7 @@ import java.math.BigDecimal;
  *  This is the superclass(parent) of all fruit class.
  */
 
-public abstract class Fruit {
+public abstract class AbstractFruit {
     abstract String type();
     abstract BigDecimal getFruitPrice(double weightOfItem);
     abstract String description();
