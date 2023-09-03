@@ -5,6 +5,7 @@ import com.burmau.shop.model.fruit.AbstractFruit;
 import com.burmau.shop.service.BookService;
 import com.burmau.shop.service.FruitService;
 import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000/")
 @RequestMapping("/")
 @AllArgsConstructor
 public class GeneralController {
