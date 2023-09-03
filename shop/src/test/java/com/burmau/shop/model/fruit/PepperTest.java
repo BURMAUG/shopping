@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PepperTest {
-    private final Fruit pepper = new Pepper(2.2, "Hot and spicy pepper put with care!");
+    private final AbstractFruit pepper = new Pepper(2.2, "Hot and spicy pepper put with care!");
     @Test
     void getFruitType() {
         assertEquals("Pepper", pepper.type());

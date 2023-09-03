@@ -1,6 +1,6 @@
 package com.burmau.shop.service.impl;
 
-import com.burmau.shop.model.fruit.Fruit;
+import com.burmau.shop.model.fruit.AbstractFruit;
 import com.burmau.shop.model.fruit.Pepper;
 import com.burmau.shop.model.fruit.Strawberry;
 import com.burmau.shop.model.fruit.Tomato;
@@ -21,7 +21,7 @@ public class FruitServiceImpl implements FruitService {
     private final StrawberryRepository strawberryRepository;
     private final TomatoRepository tomatoRepository;
     @Override
-    public Iterable<Fruit> findAllFruit() {
+    public Iterable<AbstractFruit> findAllFruit() {
         return all();
     }
 
@@ -69,18 +69,18 @@ public class FruitServiceImpl implements FruitService {
         tomatoRepository.save(tomato);
     }
 
-    private Iterable<Fruit> all(){
+    private Iterable<AbstractFruit> all(){
         Iterator<Pepper> pepperIterator = pepperRepository.findAll().iterator();
         Iterator<Strawberry> strawberryIterator = strawberryRepository.findAll().iterator();
         Iterator<Tomato> tomatoIterator = tomatoRepository.findAll().iterator();
-        ArrayList<Fruit> fruits = new ArrayList<>();
+        ArrayList<AbstractFruit> abstractFruits = new ArrayList<>();
 
         while (pepperIterator.hasNext())
-            fruits.add(pepperIterator.next());
+            abstractFruits.add(pepperIterator.next());
         while (strawberryIterator.hasNext())
-            fruits.add(strawberryIterator.next());
+            abstractFruits.add(strawberryIterator.next());
         while (tomatoIterator.hasNext())
-            fruits.add(tomatoIterator.next());
-        return fruits;
+            abstractFruits.add(tomatoIterator.next());
+        return abstractFruits;
     }
 }

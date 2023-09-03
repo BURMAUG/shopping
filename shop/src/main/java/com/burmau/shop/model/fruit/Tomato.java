@@ -17,7 +17,7 @@ import java.math.RoundingMode;
 @ToString
 @AllArgsConstructor @NoArgsConstructor
 @Setter @Getter
-public class Tomato extends Fruit{
+public class Tomato extends AbstractFruit {
     /**
      * The tomatoID fields is used by the entity or table to identify the item being queried.
      */
