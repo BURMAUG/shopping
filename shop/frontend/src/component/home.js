@@ -7,7 +7,7 @@ function Home(){
         return (
                 <div key={type.pepperId}>
                     <div className="tomato-view">
-                        <img src="../../public/bell%20pepper.jpeg"  alt="bell pepper"/>
+                        <img src="../../public/AdobeStock_604610658_Preview.png"  alt="bell pepper"/>
                     </div>
                     <h2>{type.type}</h2>
                     <div>
