@@ -6,6 +6,9 @@ function Home(){
     const pepper = (type) => {
         return (
                 <div key={type.pepperId}>
+                    <div className="tomato-view">
+                        <img src="../../public/bell%20pepper.jpeg"  alt="bell pepper"/>
+                    </div>
                     <h2>{type.type}</h2>
                     <div>
                         <p>Price: ${type.price}</p>
