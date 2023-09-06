@@ -8,8 +8,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "pepper")
-@Setter
-@Getter
+@Setter @Getter
 @ToString
 @NoArgsConstructor
 public class Pepper extends AbstractFruit {
@@ -29,7 +28,7 @@ public class Pepper extends AbstractFruit {
 
     public Pepper(Long pepperID, double weight, String description) {
         this.setType(NAME);
-        this.setPrice(getFruitPrice(weight));
+        this.setPrice(price(weight));
         this.setWeight(weight);
         this.pepperID = pepperID;
         this.description = description;
@@ -43,7 +42,7 @@ public class Pepper extends AbstractFruit {
 
     public void setWeight(double weight) {
         this.weight = weight;
-        this.price = getFruitPrice(weight);
+        this.price = price(weight);
     }
 
     @Override
@@ -52,8 +51,8 @@ public class Pepper extends AbstractFruit {
     }
 
     @Override
-    public BigDecimal getFruitPrice(double weight) {
-        return BASE_PRICE.multiply(BigDecimal.valueOf(weight)).setScale(2, RoundingMode.HALF_UP);
+    public BigDecimal price(double weight) {
+        return BASE_PRICE.multiply(new BigDecimal(weight)).setScale(2, RoundingMode.HALF_UP);
     }
 
     @Override

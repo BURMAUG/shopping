@@ -14,7 +14,7 @@ class TomatoTest {
 
     @Test
     void getFruitPrice() {
-        BigDecimal price = tomato.getFruitPrice(1.0);
+        BigDecimal price = tomato.price(1.0);
         assertEquals(new BigDecimal("1.99"), price);
     }
 

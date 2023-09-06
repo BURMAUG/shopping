@@ -15,7 +15,7 @@ class PepperTest {
 
     @Test
     void getFruitPrice() {
-        BigDecimal p = pepper.getFruitPrice(.2);
+        BigDecimal p = pepper.price(.2);
         assertEquals(new BigDecimal("0.08"), p);
     }
 

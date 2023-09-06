@@ -9,7 +9,7 @@
 //@EnableWebSecurity
 //public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //
-//    public void configure(HttpSecurity http) throws Exception{
+//    public void configure(HttpSecugit rity http) throws Exception{
 ////        http.authorizeHttpRequests()csrf().disable()
 ////                .authorizeRequests()
 ////                .anyMatchers("/register").permitAll()

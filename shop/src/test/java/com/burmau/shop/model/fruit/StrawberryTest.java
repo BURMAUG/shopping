@@ -17,7 +17,7 @@ class StrawberryTest {
 
     @Test
     void getFruitPrice() {
-        BigDecimal p = strawberry.getFruitPrice(.2);
+        BigDecimal p = strawberry.price(.2);
         assertEquals(new BigDecimal("3.99").setScale(2, RoundingMode.HALF_UP), p);
     }
 
