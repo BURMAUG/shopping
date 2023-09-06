@@ -9,11 +9,11 @@
 //@EnableWebSecurity
 //public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //
-//    public void configure(HttpSecurity http) throws Exception{
-//        http.authorizeHttpRequests()csrf().disable()
-//                .authorizeRequests()
-//                .anyMatchers("/register").permitAll()
-//                .anyRequest().authenticated();
+//    public void configure(HttpSecugit rity http) throws Exception{
+////        http.authorizeHttpRequests()csrf().disable()
+////                .authorizeRequests()
+////                .anyMatchers("/register").permitAll()
+////                .anyRequest().authenticated();
 //    }
 //
 //    @Bean
@@ -21,3 +21,4 @@
 //        return new BCryptPasswordEncoder();
 //    }
 //}
+//
