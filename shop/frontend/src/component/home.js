@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import FilterBy from "./FilterBy";
+import FilterBy from "./nav/FilterBy";
 
 const API = "http://localhost:8081/"
 function Home(){
@@ -20,7 +20,7 @@ function Home(){
 
     const pepper = (type) => {
         return (
-                <div className="" key={type.pepperID}>
+                <div className="pepper-content" key={type.pepperID}>
                     <div className="tomato-view">
                         <img src="../../public/AdobeStock_604610658_Preview.png"  alt="bell pepper"/>
                     </div>
@@ -61,7 +61,7 @@ function Home(){
     return (
         <>
             <FilterBy/>
-            <div className="row">
+            <div className="all-content">
                     {
                         // eslint-disable-next-line array-callback-return
                         item.map((data) => {

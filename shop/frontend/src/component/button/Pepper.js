@@ -1,7 +1,7 @@
 import {useState} from "react";
 
-const API = 'http://localhost:8081/api/v1/fruit/peppers';
-const PepperButton = () =>{
+const API = 'http://localhost:8081/api/v1/fruit/pepper';
+const Pepper = () =>{
     const [pepper, setPepper] = useState([]);
 
     function fetchData(){
@@ -22,7 +22,7 @@ const PepperButton = () =>{
             <div className="row">
                 {
                     pepper.map((data) => (
-                        <div key={data.pepperID}>
+                        <div className="pepper-content" key={data.pepperID}>
                             <h2 className="header">{data.type}</h2>
                             <div>
                                 <p>Price: ${data.price}</p>
@@ -37,10 +37,9 @@ const PepperButton = () =>{
 
                         </div>
                     ))
-            }
-
+                }
             </div>
         </>
     )
 }
-export default PepperButton;
+export default Pepper;
