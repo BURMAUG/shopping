@@ -21,15 +21,15 @@ public class FruitController {
     public Iterable<AbstractFruit> getAllFruit(){
         return fruitService.findAllFruit();
     }
-    @GetMapping("/peppers")
+    @GetMapping("/pepper")
     public Iterable<Pepper> getAllPepper(){
         return fruitService.findAllPepper();
     }
-    @GetMapping("/strawberries")
+    @GetMapping("/strawberry")
     public Iterable<Strawberry> getAllStrawberry(){
         return fruitService.findAllStrawberry();
     }
-    @GetMapping("/tomatoes")
+    @GetMapping("/tomatoe")
     public Iterable<Tomato> getAllTomato(){
         return  fruitService.findAllTomato();
     }
