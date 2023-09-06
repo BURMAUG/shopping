@@ -1,39 +1,10 @@
 import {useEffect, useState} from "react";
+import FilterBy from "./FilterBy";
 
 const API = "http://localhost:8081/"
 function Home(){
     const [item, setItem] = useState([]);
-    const pepper = (type) => {
-        return (
-                <div key={type.pepperId}>
-                    <div className="tomato-view">
-                        <img src="../../public/AdobeStock_604610658_Preview.png"  alt="bell pepper"/>
-                    </div>
-                    <h2>{type.type}</h2>
-                    <div>
-                        <p>Price: ${type.price}</p>
-                        <p>Weight: {type.weight}lbs</p>
-                        <p>Type {type.type}</p>
-                        <p>Description: {type.description}</p>
-                    </div>
-                </div>
-            );
-    };
-    const notebook = (type) => {
-        return(
-            <div key={type.noteBookID}>
-                <h2>{type.type}</h2>
-                <div>
-                    <p>Page Count: {type.pageCount}</p>
-                    <p>Price: ${type.noteBookPrice}</p>
-                    <p>Type: {type.type}</p>
-                </div>
-            </div>
-        )
-    };
-    const textbook = (type) => {};
-    const tomato = (type) => {};
-    const strawberry = (type) => {};
+
     useEffect(() => {
         fetch(API, {
             method: "GET",
@@ -47,8 +18,49 @@ function Home(){
 
     }, []);
 
+    const pepper = (type) => {
+        return (
+                <div className="" key={type.pepperID}>
+                    <div className="tomato-view">
+                        <img src="../../public/AdobeStock_604610658_Preview.png"  alt="bell pepper"/>
+                    </div>
+                    <h2>{type.type}</h2>
+                    <div>
+                        <p>Price: ${type.price}</p>
+                        <p>Weight: {type.weight}lbs</p>
+                        <p>Type {type.type}</p>
+                        <p>Description: {type.description}</p>
+                        <div className="btn">
+                            <button className="btn-update">Update</button>
+                            <button className="btn-delete">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            );
+    };
+    const notebook = (type) => {
+        return(
+            <div key={type.noteBookID}>
+                <h2>{type.type}</h2>
+                <div>
+                    <p>Page Count: {type.pageCount}</p>
+                    <p>Price: ${type.noteBookPrice}</p>
+                    <p>Type: {type.type}</p>
+                    <div className="btn">
+                        <button className="btn-update">Update</button>
+                        <button className="btn-delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        )
+    };
+    const textbook = (type) => {};
+    const tomato = (type) => {};
+    const strawberry = (type) => {};
+
     return (
         <>
+            <FilterBy/>
             <div className="row">
                     {
                         // eslint-disable-next-line array-callback-return
