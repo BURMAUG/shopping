@@ -10,10 +10,10 @@
 //public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //
 //    public void configure(HttpSecugit rity http) throws Exception{
-////        http.authorizeHttpRequests()csrf().disable()
-////                .authorizeRequests()
-////                .anyMatchers("/register").permitAll()
-////                .anyRequest().authenticated();
+//        http.authorizeHttpRequests()csrf().disable()
+//                .authorizeRequests()
+//                .anyMatchers("/register").permitAll()
+//                .anyRequest().authenticated();
 //    }
 //
 //    @Bean

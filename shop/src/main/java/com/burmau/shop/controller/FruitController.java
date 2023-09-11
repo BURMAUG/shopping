@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class FruitController {
     private final FruitService fruitService;
-    private final BookService bookService;
 
     @GetMapping("/")
     public Iterable<AbstractFruit> getAllFruit(){
@@ -28,7 +27,7 @@ public class FruitController {
     public Iterable<Strawberry> getAllStrawberry(){
         return fruitService.findAllStrawberry();
     }
-    @GetMapping("/tomatoe")
+    @GetMapping("/tomato")
     public Iterable<Tomato> getAllTomato(){
         return  fruitService.findAllTomato();
     }
@@ -44,12 +43,29 @@ public class FruitController {
         fruitService.saveNewStrawberry(strawberry);
 
     }
+
+    /**
+     *
+     * @param tomato - takes a tomato object
+     */
     @PostMapping("/tomatoes/{tomato}")
     public void addTomato(@PathVariable Tomato tomato){
         fruitService.saveNewTomato(tomato);
     }
 
-    //patch
+    //Update
 
     //delete
+
+    //this should have a uuid if not there will be more
+
+    /**
+     *
+     * @param pepperID - takes the pepperID param
+     * @return fruitService
+     */
+    @PatchMapping("pepper/{pepperID}")
+    public Pepper updatePepper(@PathVariable Long pepperID){
+        return fruitService.updatePepperWith(pepperID);
+    }
 }

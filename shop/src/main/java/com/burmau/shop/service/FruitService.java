@@ -16,4 +16,6 @@ public interface FruitService {
     void saveNewStrawberry(Strawberry strawberry);
 
     void saveNewTomato(Tomato tomato);
+
+    Pepper updatePepperWith(Long pepperID);
 }

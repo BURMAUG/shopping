@@ -69,6 +69,11 @@ public class FruitServiceImpl implements FruitService {
         tomatoRepository.save(tomato);
     }
 
+    @Override
+    public Pepper updatePepperWith(Long pepperID) {
+        return null;
+    }
+
     private Iterable<AbstractFruit> all(){
         Iterator<Pepper> pepperIterator = pepperRepository.findAll().iterator();
         Iterator<Strawberry> strawberryIterator = strawberryRepository.findAll().iterator();
