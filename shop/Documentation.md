@@ -25,6 +25,8 @@ Here is the list of the products to be listed in the store: Milk, Tomato, Papper
 
 [//]: # (    /spices - maggie and salt)
 
+### >CREATE: 
+
 ### >UPDATE:
 
 ### >DELETE:
