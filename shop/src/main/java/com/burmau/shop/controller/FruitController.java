@@ -35,7 +35,7 @@ public class FruitController {
     }
 
     //POST
-    @PostMapping("/peppers/")
+    @PostMapping("/pepper/")
     public void addPepper( @RequestBody Pepper pepper){
         fruitService.saveNewPepper(pepper);
     }
@@ -53,4 +53,8 @@ public class FruitController {
     //patch
 
     //delete
+    @DeleteMapping("/pepper/{id}")
+    public Iterable<Pepper> deletePepperBy(@PathVariable Long id){
+        return fruitService.deleteBy(id);
+    }
 }

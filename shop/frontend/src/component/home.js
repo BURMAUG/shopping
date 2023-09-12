@@ -18,10 +18,19 @@ function Home(){
 
     }, []);
 
+    const handleDelete = (id, type) => {
+        return fetch(API + `api/v1/fruit/${type}/${id}`,{
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {"Content-Type" : "application/json"}
+        }).then(res => res.json())
+            .then(data => setItem(data))
+            .catch(console.error)
+    };
     const pepper = (type) => {
         return (
                 <div className="pepper-content" key={type.pepperID}>
-                    <div className="tomato-view">
+                    <div className="pepper-view">
                         <img src="../../public/AdobeStock_604610658_Preview.png"  alt="bell pepper"/>
                     </div>
                     <h2>{type.type}</h2>
@@ -32,7 +41,7 @@ function Home(){
                         <p>Description: {type.description}</p>
                         <div className="btn">
                             <button className="btn-update">Update</button>
-                            <button className="btn-delete">Delete</button>
+                            <button className="btn-delete" onClick={() => handleDelete(type.pepperID, type.type.toLowerCase()) }>Delete</button>
                         </div>
                     </div>
                 </div>
@@ -54,9 +63,35 @@ function Home(){
             </div>
         )
     };
-    const textbook = (type) => {};
-    const tomato = (type) => {};
+    const textbook = (type) => {
+        return (
+            <div key={type.textbookID}>
+
+            </div>
+        );
+    };
+    const tomato = (type) => {
+        return (
+            <div className="tomato-content">
+                <div className="tomato-view">
+                    <img src="../../public/AdobeStock_604610658_Preview.png"  alt="bell pepper"/>
+                </div>
+                <h2>{type.type}</h2>
+                <div>
+                    <p>Price: ${type.price}</p>
+                    <p>Weight: {type.weight}lbs</p>
+                    <p>Type {type.type}</p>
+                    <p>Description: {type.description}</p>
+                    <div className="btn">
+                        <button className="btn-update">Update</button>
+                        <button className="btn-delete" onClick={() => handleDelete(type.pepperID, type.type.toLowerCase()) }>Delete</button>
+                    </div>
+                </div>
+            </div>
+        )
+    };
     const strawberry = (type) => {};
+
 
     return (
         <>
@@ -69,8 +104,12 @@ function Home(){
                                 return pepper(data)
                             else if(data.type.toLowerCase() === "notebook")
                                 return notebook(data)
+                            else if(data.type.toLowerCase() === "tomato")
+                                return tomato(data)
+                            else if(data.type.toLowerCase() === "strawberry")
+                                return strawberry(data)
                             else
-                            return (<></>)
+                                return textbook(data)
                         })
                     }
             </div>

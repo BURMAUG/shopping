@@ -69,6 +69,12 @@ public class FruitServiceImpl implements FruitService {
         tomatoRepository.save(tomato);
     }
 
+    @Override
+    public Iterable<Pepper> deleteBy(Long id) {
+        pepperRepository.deleteById(id);
+        return pepperRepository.findAll();
+    }
+
     private Iterable<AbstractFruit> all(){
         Iterator<Pepper> pepperIterator = pepperRepository.findAll().iterator();
         Iterator<Strawberry> strawberryIterator = strawberryRepository.findAll().iterator();
