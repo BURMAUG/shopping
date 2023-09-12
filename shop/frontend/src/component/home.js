@@ -1,20 +1,26 @@
 import {useEffect, useState} from "react";
+import {ToastContainer,toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import FilterBy from "./nav/FilterBy";
 
 const API = "http://localhost:8081/"
 function Home(){
     const [item, setItem] = useState([]);
 
-    useEffect(() => {
+    function fetcher() {
         fetch(API, {
             method: "GET",
-            headers: {"Content-Type" : "application/json"},
+            headers: {"Content-Type": "application/json"},
         }).then(res => res.json())
             .then(data => {
                 console.log(data)
                 setItem(data)
             })
             .catch(console.error)
+    }
+
+    useEffect(() => {
+        fetcher();
 
     }, []);
 
@@ -23,8 +29,12 @@ function Home(){
             method: 'DELETE',
             mode: 'cors',
             headers: {"Content-Type" : "application/json"}
-        }).then(res => res.json())
-            .then(data => setItem(data))
+        }).then(res => {
+            toast.success("Successfully Deleted",{
+                position: toast.POSITION.TOP_CENTE
+            });
+            fetcher();
+        })
             .catch(console.error)
     };
     const pepper = (type) => {
@@ -43,6 +53,7 @@ function Home(){
                             <button className="btn-update">Update</button>
                             <button className="btn-delete" onClick={() => handleDelete(type.pepperID, type.type.toLowerCase()) }>Delete</button>
                         </div>
+                        <ToastContainer autoClose={1500}/>
                     </div>
                 </div>
             );
