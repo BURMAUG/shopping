@@ -18,4 +18,8 @@ public interface FruitService {
     void saveNewTomato(Tomato tomato);
 
     Iterable<Pepper> deleteBy(Long id);
+
+    Iterable<Strawberry> deleteStrawberryBy(Long id);
+
+    Iterable<Tomato> deleteTomatoBy(Long id);
 }

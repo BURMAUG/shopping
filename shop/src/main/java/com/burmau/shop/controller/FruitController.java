@@ -57,4 +57,12 @@ public class FruitController {
     public Iterable<Pepper> deletePepperBy(@PathVariable Long id){
         return fruitService.deleteBy(id);
     }
+    @DeleteMapping("/strawberry/{id}")
+    public Iterable<Strawberry> deleteStrawberryBy(@PathVariable Long id){
+        return fruitService.deleteStrawberryBy(id);
+    }
+    @DeleteMapping("/tomato/{id}")
+    public Iterable<Tomato> deleteTomatoBy(@PathVariable Long id){
+        return fruitService.deleteTomatoBy(id);
+    }
 }
