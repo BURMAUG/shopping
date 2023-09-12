@@ -30,4 +30,16 @@ public class BookController {
     public void addNotebook(@RequestBody Notebook notebook){
         bookService.add(notebook);
     }
+    @PostMapping("/textbook")
+    public void addTextbook(@RequestBody Textbook textbook){
+        bookService.add(textbook);
+    }
+    @DeleteMapping("/notebook/{id}")
+    public Iterable<Notebook> deleteNotebookBy(@PathVariable Long id){
+        return bookService.deleteNotebookBy(id);
+    }
+    @DeleteMapping("/textbook/{id}")
+    public Iterable<Textbook> deleteTextbookBy(@PathVariable Long id){
+        return bookService.deleteTextbookBy(id);
+    }
 }

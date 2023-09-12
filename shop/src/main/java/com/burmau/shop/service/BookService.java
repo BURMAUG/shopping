@@ -16,4 +16,8 @@ public interface BookService {
     Iterable<Textbook> findAllTextbooks();
 
     Iterable<Notebook> findAllNotebooks();
+
+    Iterable<Notebook> deleteNotebookBy(Long id);
+
+    Iterable<Textbook> deleteTextbookBy(Long id);
 }

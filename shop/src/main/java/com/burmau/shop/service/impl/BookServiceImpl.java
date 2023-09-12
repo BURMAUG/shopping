@@ -51,4 +51,16 @@ public class BookServiceImpl implements BookService {
     public Iterable<Notebook> findAllNotebooks() {
         return noteRepository.findAll();
     }
+
+    @Override
+    public Iterable<Notebook> deleteNotebookBy(Long id) {
+        noteRepository.deleteById(id);
+        return noteRepository.findAll();
+    }
+
+    @Override
+    public Iterable<Textbook> deleteTextbookBy(Long id) {
+        textBookRepository.deleteById(id);
+        return textBookRepository.findAll();
+    }
 }
