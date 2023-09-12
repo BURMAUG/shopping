@@ -29,7 +29,7 @@ public class FruitController {
     public Iterable<Strawberry> getAllStrawberry(){
         return fruitService.findAllStrawberry();
     }
-    @GetMapping("/tomatoe")
+    @GetMapping("/tomato")
     public Iterable<Tomato> getAllTomato(){
         return  fruitService.findAllTomato();
     }
@@ -40,12 +40,12 @@ public class FruitController {
         fruitService.saveNewPepper(pepper);
     }
 
-    @PostMapping("/strawberries/{strawberry}")
+    @PostMapping("/strawberry/{strawberry}")
     public void addStrawberry(@PathVariable Strawberry strawberry){
         fruitService.saveNewStrawberry(strawberry);
 
     }
-    @PostMapping("/tomatoes/{tomato}")
+    @PostMapping("/tomato/{tomato}")
     public void addTomato(@PathVariable Tomato tomato){
         fruitService.saveNewTomato(tomato);
     }
