@@ -18,4 +18,8 @@ public interface FruitService {
     void saveNewTomato(Tomato tomato);
 
     Pepper updatePepperWith(Long pepperID);
+
+    void deleteTomato(Long id);
+
+    void deletePepper(Long id);
 }

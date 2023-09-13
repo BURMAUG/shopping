@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/fruit")
+@CrossOrigin(origins = "http://localhost:3000/")
 @AllArgsConstructor
 public class FruitController {
     private final FruitService fruitService;
@@ -56,7 +57,14 @@ public class FruitController {
     //Update
 
     //delete
-
+    @DeleteMapping("/pepper/{id}")
+    public void deletePepperBy(@PathVariable Long id){
+        fruitService.deletePepper(id);
+    }
+    @DeleteMapping("/tomato/{id}")
+    public void deleteTomatoBy(@PathVariable Long id){
+        fruitService.deleteTomato(id);
+    }
     //this should have a uuid if not there will be more
 
     /**
