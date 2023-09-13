@@ -1,7 +1,7 @@
 import {useState} from "react";
 
 let api = "http://localhost:8081/api/v1/fruit/"; //should be generic
-const UpdateButton = () =>{
+const UpdateFruitItem = () =>{
     const [data, setData] = useState('');
 
     return(
@@ -10,4 +10,4 @@ const UpdateButton = () =>{
         </>
     )
 }
-export default UpdateButton;
+export default UpdateFruitItem;
