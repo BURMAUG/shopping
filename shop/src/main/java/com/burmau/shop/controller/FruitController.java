@@ -40,13 +40,13 @@ public class FruitController {
         fruitService.saveNewPepper(pepper);
     }
 
-    @PostMapping("/strawberry/{strawberry}")
-    public void addStrawberry(@PathVariable Strawberry strawberry){
+    @PostMapping("/strawberry/")
+    public void addStrawberry(@RequestBody Strawberry strawberry){
         fruitService.saveNewStrawberry(strawberry);
 
     }
-    @PostMapping("/tomato/{tomato}")
-    public void addTomato(@PathVariable Tomato tomato){
+    @PostMapping("/tomato/")
+    public void addTomato(@RequestBody Tomato tomato){
         fruitService.saveNewTomato(tomato);
     }
 

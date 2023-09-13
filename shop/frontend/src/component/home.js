@@ -7,7 +7,7 @@ const API = "http://localhost:8081/"
 function Home(){
     const [item, setItem] = useState([]);
 
-    function fetcher() {
+    const fetcher = ()=> {
         fetch(API, {
             method: "GET",
             headers: {"Content-Type": "application/json"},
@@ -25,18 +25,21 @@ function Home(){
     }, []);
 
     const handleDelete = (id, type) => {
-        return fetch(API + `api/v1/fruit/${type}/${id}`,{
-            method: 'DELETE',
-            mode: 'cors',
-            headers: {"Content-Type" : "application/json"}
-        }).then(res => {
-            toast.success("Successfully Deleted",{
-                position: toast.POSITION.TOP_CENTE
-            });
-            fetcher();
-        })
-            .catch(console.error)
-    };
+        if (window.confirm("Are you sure you wanna delete this item?")){
+            return fetch(API + `api/v1/fruit/${type}/${id}`,{
+                method: 'DELETE',
+                mode: 'cors',
+                headers: {"Content-Type" : "application/json"}
+            }).then((res) =>{
+                if (res.ok)
+                    toast.success(`Successfully Deleted  ${type}`,{
+                    position: toast.POSITION.TOP_CENTER});
+                fetcher();
+            })
+                .catch(console.error)
+        }
+    }
+
     const pepper = (type) => {
         return (
                 <div className="pepper-content" key={type.pepperID}>
@@ -60,15 +63,17 @@ function Home(){
     };
     const notebook = (type) => {
         return(
-            <div key={type.noteBookID}>
-                <h2>{type.type}</h2>
-                <div>
-                    <p>Page Count: {type.pageCount}</p>
-                    <p>Price: ${type.noteBookPrice}</p>
-                    <p>Type: {type.type}</p>
-                    <div className="btn">
-                        <button className="btn-update">Update</button>
-                        <button className="btn-delete">Delete</button>
+            <div className="notebook-content">
+                <div key={type.noteBookID}>
+                    <h2>{type.type}</h2>
+                    <div>
+                        <p>Page Count: {type.pageCount}</p>
+                        <p>Price: ${type.noteBookPrice}</p>
+                        <p>Type: {type.type}</p>
+                        <div className="btn">
+                            <button className="btn-update" >Update</button>
+                            <button className="btn-delete" onClick={() => handleDelete(type.type.toLowerCase(), type.notebookId)}>Delete</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -114,13 +119,13 @@ function Home(){
                             if(data.type.toLowerCase() === "pepper")
                                 return pepper(data)
                             else if(data.type.toLowerCase() === "notebook")
-                                return notebook(data)
+                                 return notebook(data)
                             else if(data.type.toLowerCase() === "tomato")
-                                return tomato(data)
+                               return tomato(data)
                             else if(data.type.toLowerCase() === "strawberry")
                                 return strawberry(data)
                             else
-                                return textbook(data)
+                               return textbook(data)
                         })
                     }
             </div>
