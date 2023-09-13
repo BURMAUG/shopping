@@ -10,12 +10,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/")
 @RequestMapping("api/v1/fruit")
 @AllArgsConstructor
 public class FruitController {
     private final FruitService fruitService;
-    private final BookService bookService;
 
     @GetMapping("/")
     public Iterable<AbstractFruit> getAllFruit(){
@@ -35,34 +33,39 @@ public class FruitController {
     }
 
     //POST
-    @PostMapping("/pepper/")
+    @PostMapping("/peppers/")
     public void addPepper( @RequestBody Pepper pepper){
         fruitService.saveNewPepper(pepper);
     }
 
-    @PostMapping("/strawberry/{strawberry}")
+    @PostMapping("/strawberries/{strawberry}")
     public void addStrawberry(@PathVariable Strawberry strawberry){
         fruitService.saveNewStrawberry(strawberry);
 
     }
-    @PostMapping("/tomato/{tomato}")
-    public void addTomato(@PathVariable Tomato tomato){
+
+    /**
+     *
+     * @param tomato - takes a tomato object
+     */
+    @PostMapping("/tomato/")
+    public void addTomato(@RequestBody Tomato tomato){
         fruitService.saveNewTomato(tomato);
     }
 
-    //patch
+    //Update
 
     //delete
-    @DeleteMapping("/pepper/{id}")
-    public Iterable<Pepper> deletePepperBy(@PathVariable Long id){
-        return fruitService.deleteBy(id);
-    }
-    @DeleteMapping("/strawberry/{id}")
-    public Iterable<Strawberry> deleteStrawberryBy(@PathVariable Long id){
-        return fruitService.deleteStrawberryBy(id);
-    }
-    @DeleteMapping("/tomato/{id}")
-    public Iterable<Tomato> deleteTomatoBy(@PathVariable Long id){
-        return fruitService.deleteTomatoBy(id);
+
+    //this should have a uuid if not there will be more
+
+    /**
+     *
+     * @param pepperID - takes the pepperID param
+     * @return fruitService
+     */
+    @PatchMapping("pepper/{pepperID}")
+    public Pepper updatePepper(@PathVariable Long pepperID){
+        return fruitService.updatePepperWith(pepperID);
     }
 }
