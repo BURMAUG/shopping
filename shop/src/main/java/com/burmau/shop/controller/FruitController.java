@@ -65,6 +65,10 @@ public class FruitController {
     public void deleteTomatoBy(@PathVariable Long id){
         fruitService.deleteTomato(id);
     }
+    @DeleteMapping("/strawberry/{id}")
+    public void deleteStrawberryBy(@PathVariable Long id){
+        fruitService.deleteStrawberry(id);
+    }
     //this should have a uuid if not there will be more
 
     /**

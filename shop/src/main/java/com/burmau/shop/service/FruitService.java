@@ -22,4 +22,6 @@ public interface FruitService {
     void deleteTomato(Long id);
 
     void deletePepper(Long id);
+
+    void deleteStrawberry(Long id);
 }
