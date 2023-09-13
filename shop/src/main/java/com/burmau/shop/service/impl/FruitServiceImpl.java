@@ -70,21 +70,8 @@ public class FruitServiceImpl implements FruitService {
     }
 
     @Override
-    public Iterable<Pepper> deleteBy(Long id) {
-        pepperRepository.deleteById(id);
-        return pepperRepository.findAll();
-    }
-
-    @Override
-    public Iterable<Strawberry> deleteStrawberryBy(Long id) {
-        strawberryRepository.deleteById(id);
-        return strawberryRepository.findAll();
-    }
-
-    @Override
-    public Iterable<Tomato> deleteTomatoBy(Long id) {
-        tomatoRepository.deleteById(id);
-        return tomatoRepository.findAll();
+    public Pepper updatePepperWith(Long pepperID) {
+        return null;
     }
 
     private Iterable<AbstractFruit> all(){
