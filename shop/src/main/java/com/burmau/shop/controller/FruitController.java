@@ -34,17 +34,15 @@ public class FruitController {
     }
 
     //POST
-    @PostMapping("/peppers/")
+    @PostMapping("/pepper/")
     public void addPepper( @RequestBody Pepper pepper){
         fruitService.saveNewPepper(pepper);
     }
 
-    @PostMapping("/strawberries/{strawberry}")
-    public void addStrawberry(@PathVariable Strawberry strawberry){
+    @PostMapping("/strawberry/")
+    public void addStrawberry(@RequestBody Strawberry strawberry){
         fruitService.saveNewStrawberry(strawberry);
-
     }
-
     /**
      *
      * @param tomato - takes a tomato object
@@ -53,8 +51,6 @@ public class FruitController {
     public void addTomato(@RequestBody Tomato tomato){
         fruitService.saveNewTomato(tomato);
     }
-
-    //Update
 
     //delete
     @DeleteMapping("/pepper/{id}")
@@ -80,4 +76,5 @@ public class FruitController {
     public Pepper updatePepper(@PathVariable Long pepperID){
         return fruitService.updatePepperWith(pepperID);
     }
+
 }
