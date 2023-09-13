@@ -39,7 +39,7 @@ public class Tomato extends AbstractFruit {
     private String type = TYPE;
     public Tomato(double itemCount, String description){
         this.setItemCount(itemCount);
-        this.setPrice(price(itemCount));
+//        setPrice(BigDecimal.valueOf(itemCount));
         this.description = description;
         this.type = type();
     }
