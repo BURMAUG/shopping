@@ -1,20 +1,13 @@
 .all-content{
-    display: flex;
-    margin: 50px;
+    display: grid;
+    justify-content: center;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, calc(20% - 10px));
+    /*margin: 50px;*/
 }
-/*Commenting this one for now*/
-.all-content .pepper-content{
-    /*display: flex;*/
-    margin: 50px;
- }
-
-.row{
-    display: flex;
-    padding: 10px;
-    margin: 10px;
-    border: 16px;
-
-}
-.row .pepper-content{
-    margin: 50px;
+.cnt{
+    justify-content: center;
+    height: 490px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 7px 2px rgb(161, 158, 158);
 }

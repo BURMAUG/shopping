@@ -43,9 +43,9 @@ function Home(){
 
     const pepper = (type) => {
         return (
-                <div className="pepper-content" key={type.pepperID}>
+                <div className="cnt pepper-content" key={type.pepperID}>
                     <div className="pepper-view">
-                        <img src="../../public/AdobeStock_604610658_Preview.png"  alt="bell pepper"/>
+                        <img src={`../../public/AdobeStock_604610658_Preview.png`}  alt="bell pepper" className="pic"/>
                     </div>
                     <h2>{type.type}</h2>
                     <div>
@@ -64,8 +64,8 @@ function Home(){
     };
     const notebook = (type) => {
         return(
-            <div className="notebook-content">
-                <div key={type.noteBookID}>
+            <div className="cnt notebook-content">
+                <div className="notebook-view" key={type.noteBookID}>
                     <h2>{type.type}</h2>
                     <div>
                         <p>Page Count: {type.pageCount}</p>
@@ -82,14 +82,14 @@ function Home(){
     };
     const textbook = (type) => {
         return (
-            <div key={type.textbookID}>
+            <div className="" key={type.textbookID}>
 
             </div>
         );
     };
     const tomato = (type) => {
         return (
-            <div className="tomato-content">
+            <div className="cnt tomato-content">
                 <div className="tomato-view">
                     <img src="../../public/AdobeStock_604610658_Preview.png"  alt="bell pepper"/>
                 </div>
@@ -101,7 +101,7 @@ function Home(){
                     <p>Description: {type.description}</p>
                     <div className="btn">
                         <button className="btn-update">Update</button>
-                        <button className="btn-delete" onClick={() => handleDelete(type.pepperID, type.type.toLowerCase()) }>Delete</button>
+                        <button className="btn-delete" onClick={() => handleDelete(type.tomatoID, type.type.toLowerCase()) }>Delete</button>
                     </div>
                 </div>
             </div>

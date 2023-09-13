@@ -19,12 +19,12 @@ const Tomato = () => {
        fetchData();
     }, [])
     return(
-        <>
+        <div className="cnt">
             <button onClick={fetchData}>Tomato Only</button>
-           <div>
+           <div className="row">
                {
                    data.map((food) =>(
-                       <div key={food.tomatoID}>
+                       <div className="tomato-cnt" key={food.tomatoID}>
                            <h2 className="">{food.type}</h2>
                            <div className="content">
                                <p>Amount: {food.itemCount}lbs</p>
@@ -36,7 +36,7 @@ const Tomato = () => {
                    ))
                }
            </div>
-        </>
+        </div>
     );
 }
 export default Tomato;
