@@ -48,8 +48,8 @@ public class FruitController {
      *
      * @param tomato - takes a tomato object
      */
-    @PostMapping("/tomatoes/{tomato}")
-    public void addTomato(@PathVariable Tomato tomato){
+    @PostMapping("/tomato/")
+    public void addTomato(@RequestBody Tomato tomato){
         fruitService.saveNewTomato(tomato);
     }
 

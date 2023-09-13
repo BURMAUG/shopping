@@ -27,19 +27,21 @@ public class Tomato extends AbstractFruit {
     /**
      * The price field is used to compute the price of the fruit per can.
      */
-    private BigDecimal price;//= new BigDecimal("1.99").setScale(2, RoundingMode.HALF_UP);
+    private static final BigDecimal BASE_PRICE = new BigDecimal("1.99").setScale(2, RoundingMode.HALF_UP);
+    private BigDecimal price = BASE_PRICE;
+
+    private static final String TYPE = "Tomato";
     /**
      * The description - describes the item to the customer or company at large.
      */
     private String description;
     private double itemCount;
-    private String type;
-    public Tomato(double itemCount, String description, String type){
-        this.itemCount = itemCount;
+    private String type = TYPE;
+    public Tomato(double itemCount, String description){
+        this.setItemCount(itemCount);
+        this.setPrice(price(itemCount));
         this.description = description;
-        this.type = type;
-        setPrice(new BigDecimal("1,99").setScale(2,RoundingMode.HALF_UP));
-        this.price = price(itemCount);
+        this.type = type();
     }
 
     /**
@@ -48,7 +50,11 @@ public class Tomato extends AbstractFruit {
      */
     @Override
     String type() {
-        return "Tomato";
+        return TYPE;
+    }
+    private void setItemCount(double itemCount){
+        this.itemCount = itemCount;
+        this.price = price(itemCount);
     }
 
     /**
@@ -58,9 +64,7 @@ public class Tomato extends AbstractFruit {
      */
     @Override
     BigDecimal price(double itemCount) {
-        itemCount = Math.ceil(itemCount);
-        price = price.multiply(new BigDecimal(itemCount));
-        return price;
+        return BASE_PRICE.multiply(new BigDecimal(itemCount)).setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
