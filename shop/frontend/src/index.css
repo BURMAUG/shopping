@@ -7,7 +7,12 @@
 }
 .cnt{
     justify-content: center;
-    height: 490px;
+    height: 496px;
     border-radius: 5px;
-    box-shadow: 2px 2px 7px 2px rgb(161, 158, 158);
+    box-shadow: 3px 3px 7px 5px rgba(198, 189, 189, 0.34);
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
 }
