@@ -34,7 +34,7 @@ public class FruitController {
     }
 
     //POST
-    @PostMapping("/peppers/")
+    @PostMapping("/pepper/")
     public void addPepper( @RequestBody Pepper pepper){
         fruitService.saveNewPepper(pepper);
     }

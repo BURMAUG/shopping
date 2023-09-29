@@ -1,8 +1,0 @@
-
-const AddFruitItem = (prop) => {
-  return(
-      <>
-      </>
-  )
-}
-
