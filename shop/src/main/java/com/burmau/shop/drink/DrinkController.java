@@ -1,5 +1,6 @@
 package com.burmau.shop.drink;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,4 +13,8 @@ class DrinkController {
         this.drinkService = drinkService;
     }
 
+    @GetMapping("/")
+    Iterable<Drink> getAllDrinks(){
+        return drinkService.findAllDrink();
+    }
 }

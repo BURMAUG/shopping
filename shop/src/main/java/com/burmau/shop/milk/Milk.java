@@ -4,11 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 @Entity
-@NoArgsConstructor(force = true)
 public record Milk(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,4 +14,5 @@ public record Milk(
         String brand,
         BigDecimal price
 ) {
+
 }
