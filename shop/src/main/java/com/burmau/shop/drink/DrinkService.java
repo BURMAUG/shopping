@@ -28,10 +28,16 @@ class DrinkService {
         else
             throw new DrinkNotFoundException("Not found");
     }
-    Optional<Drink> findByBrandName(String brandName){
+    Iterable<Drink> findByBrandName(String brandName){
         if (drinkRepository.existsByBrand(brandName))
             return drinkRepository.findByBrand(brandName);
         else
             throw new DrinkNotFoundException("Not Found");
+    }
+    Iterable<Drink> findByManufacturer(String manufacturer){
+        if (drinkRepository.existsByManufacturer(manufacturer))
+            return drinkRepository.findAllByManufacturer(manufacturer);
+        else
+            throw new DrinkNotFoundException("Not found.");
     }
 }

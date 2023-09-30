@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping("/api/v2/drinks")
+@RequestMapping("/api/v2/drink")
 class DrinkController {
     private final DrinkService drinkService;
 
