@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter @Setter
 @ToString
-class Bread {
+class Drink {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         Long drinkID;

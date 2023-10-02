@@ -16,27 +16,27 @@ class DrinkController implements Serializable {
     }
 
     @GetMapping("/")
-    Iterable<Bread> getAllDrinks(){
+    Iterable<Drink> getAllDrinks(){
         return drinkService.findAllDrink();
     }
     @GetMapping("/id={id}")
-    Optional<Bread> findDrink(@PathVariable Long id){
+    Optional<Drink> findDrink(@PathVariable Long id){
         return drinkService.findById(id);
     }
     @GetMapping("/brand={name}")
-    Iterable<Bread> findDrinkByBrand(@PathVariable String name){
+    Iterable<Drink> findDrinkByBrand(@PathVariable String name){
         return drinkService.findByBrandName(name);
     }
     @GetMapping("/manufacturer={manufacturer}")
-    Iterable<Bread> findDrinkBy(@PathVariable String manufacturer){
+    Iterable<Drink> findDrinkBy(@PathVariable String manufacturer){
         return drinkService.findByManufacturer(manufacturer);
     }
     @PostMapping("/")
-    void addADrink(Bread bread){
+    void addADrink(Drink bread){
         drinkService.addDrink(bread);
     }
     @PutMapping("id=/{id}")
-    Bread updateDrink(@PathVariable Long id, @RequestBody Bread bread){
+    Drink updateDrink(@PathVariable Long id, @RequestBody Drink bread){
         return drinkService.update(id, bread);
     }
     @DeleteMapping("/id={id}")

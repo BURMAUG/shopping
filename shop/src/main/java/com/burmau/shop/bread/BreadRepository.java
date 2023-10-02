@@ -6,13 +6,14 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 public interface BreadRepository extends JpaRepository<Bread, Long> {
-    @Query("")
+    @Query("SELECT u FROM Bread u")
     Iterable<Bread> find();
 
-    @Query("")
+    @Query("SELECT u FROM Bread u WHERE u.breadID = :id")
     Optional<Bread> findID(Long id);
 
     boolean existsByBrand(String name);
 
+    @Query("SELECT u FROM Bread u WHERE u.brand = :name")
     Iterable<Bread> findBrand(String name);
 }

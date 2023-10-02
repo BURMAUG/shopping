@@ -12,10 +12,10 @@ class DrinkService {
         this.drinkRepository = drinkRepository;
     }
 
-    Iterable<Bread> findAllDrink() {
+    Iterable<Drink> findAllDrink() {
         return drinkRepository.findAll();
     }
-    Optional<Bread> findById(Long drinkID){
+    Optional<Drink> findById(Long drinkID){
         if (drinkRepository.existsById(drinkID))
             return drinkRepository.findById(drinkID);
         else
@@ -27,27 +27,27 @@ class DrinkService {
         else
             throw new DrinkNotFoundException("Not found");
     }
-    Iterable<Bread> findByBrandName(String brandName){
+    Iterable<Drink> findByBrandName(String brandName){
         if (drinkRepository.existsByBrand(brandName))
             return drinkRepository.findByBrand(brandName);
         else
             throw new DrinkNotFoundException("Not Found");
     }
-    Iterable<Bread> findByManufacturer(String manufacturer){
+    Iterable<Drink> findByManufacturer(String manufacturer){
         if (drinkRepository.existsByManufacturer(manufacturer))
             return drinkRepository.findAllByManufacturer(manufacturer);
         else
             throw new DrinkNotFoundException("Not found.");
     }
 
-    public Bread update(Long id, Bread bread) {
+    public Drink update(Long id, Drink bread) {
         if(drinkRepository.existsById(id)){
             return drinkRepository.save(bread);
         }
         throw new DrinkNotFoundException("Not Found");
     }
 
-    public void addDrink(Bread bread) {
+    public void addDrink(Drink bread) {
         if (drinkRepository.existsById(bread.drinkID))
             throw new DrinkNotFoundException("Already exist!");
         drinkRepository.save(bread);
