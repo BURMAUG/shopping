@@ -2,7 +2,6 @@ package com.burmau.shop.drink;
 
 import org.springframework.stereotype.Service;
 
-import java.util.IllegalFormatCodePointException;
 import java.util.Optional;
 
 @Service
@@ -13,10 +12,10 @@ class DrinkService {
         this.drinkRepository = drinkRepository;
     }
 
-    Iterable<Drink> findAllDrink() {
+    Iterable<Bread> findAllDrink() {
         return drinkRepository.findAll();
     }
-    Optional<Drink> findById(Long drinkID){
+    Optional<Bread> findById(Long drinkID){
         if (drinkRepository.existsById(drinkID))
             return drinkRepository.findById(drinkID);
         else
@@ -28,16 +27,30 @@ class DrinkService {
         else
             throw new DrinkNotFoundException("Not found");
     }
-    Iterable<Drink> findByBrandName(String brandName){
+    Iterable<Bread> findByBrandName(String brandName){
         if (drinkRepository.existsByBrand(brandName))
             return drinkRepository.findByBrand(brandName);
         else
             throw new DrinkNotFoundException("Not Found");
     }
-    Iterable<Drink> findByManufacturer(String manufacturer){
+    Iterable<Bread> findByManufacturer(String manufacturer){
         if (drinkRepository.existsByManufacturer(manufacturer))
             return drinkRepository.findAllByManufacturer(manufacturer);
         else
             throw new DrinkNotFoundException("Not found.");
     }
+
+    public Bread update(Long id, Bread bread) {
+        if(drinkRepository.existsById(id)){
+            return drinkRepository.save(bread);
+        }
+        throw new DrinkNotFoundException("Not Found");
+    }
+
+    public void addDrink(Bread bread) {
+        if (drinkRepository.existsById(bread.drinkID))
+            throw new DrinkNotFoundException("Already exist!");
+        drinkRepository.save(bread);
+    }
+
 }
