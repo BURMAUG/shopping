@@ -13,13 +13,7 @@ Here is the list of the products to be listed in the store: Milk, Tomato, Papper
 
                               The RESTful APIs.
 ### >GET:
-    /register
-    /login,
-    /logout
-    /books - this is going to display all book types
-    /notebooks and 
-    /textbooks
-    /fruits - contains tomato, papper, strawberry
+    contains tomato, papper, strawberry, milk, drink, pepper, rice
 
 [//]: # (I think this should be structured as such /tomato, /pepper, /strawberry)
 
