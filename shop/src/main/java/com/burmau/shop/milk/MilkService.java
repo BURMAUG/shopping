@@ -1,6 +1,5 @@
 package com.burmau.shop.milk;
 
-import com.burmau.shop.bread.Bread;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,15 +9,15 @@ import java.util.Optional;
 @AllArgsConstructor
 public class MilkService {
     private final MilkRepository milkRepository;
-    public Iterable<Bread> findAllMilk() {
+    public Iterable<Milk> findAllMilk() {
         return milkRepository.find();
     }
 
-    public Optional<Bread> findById(Long id) {
+    public Optional<Milk> findById(Long id) {
         return milkRepository.findID(id);
     }
 
-    public Iterable<Bread> findByBrand(String name) {
+    public Iterable<Milk> findByBrand(String name) {
         return milkRepository.findBrand(name);
     }
 

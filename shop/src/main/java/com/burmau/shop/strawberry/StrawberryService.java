@@ -17,17 +17,13 @@ public class StrawberryService {
         return strawberryRepository.findID(id);
     }
 
-    public Iterable<Strawberry> findByBrand(String name) {
-        return strawberryRepository.findBrand(name);
-    }
-
     public void addStrawberry(Strawberry strawberry) {
         strawberryRepository.save(strawberry);
     }
 
-    public Strawberry update(Long id, Strawberry strawberry) {
-        return null;
-    }
+//    public Strawberry update(Long id, Strawberry strawberry) {
+//        return null;
+//    }
 
     public void deleteStrawberryWithID(Long id) {
         strawberryRepository.deleteID(id);

@@ -11,11 +11,9 @@ public interface DrinkRepository extends CrudRepository<Drink, Long> {
     @Override
     @Query("SELECT u FROM Drink u")
     Iterable<Drink> findAll();
-    @Query("SELECT u.manufacturer FROM Drink u WHERE u.manufacturer = :manufacturer")
-    Iterable<Drink> findAllByManufacturer(String manufacturer);
     @Query("SELECT u FROM Drink u WHERE u.manufacturer = :manufacturer")
+    Iterable<Drink> findAllByManufacturer(String manufacturer);
     boolean existsByManufacturer(String manufacturer);
-    @Query("SELECT u FROM Drink u WHERE u.brand = :brandName")
     boolean existsByBrand(String brandName);
 
 }

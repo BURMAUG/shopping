@@ -21,18 +21,14 @@ class StrawberryController {
     Optional<Strawberry> findStrawberry(@PathVariable Long id){
         return strawberryService.findById(id);
     }
-    @GetMapping("/brand={name}")
-    Iterable<Strawberry> findStrawberryByBrand(@PathVariable String name){
-        return strawberryService.findByBrand(name);
-    }
     @PostMapping("/")
     void addAStrawberry(Strawberry strawberry){
         strawberryService.addStrawberry(strawberry);
     }
-    @PutMapping("id=/{id}")
-    Strawberry updateStrawberry(@PathVariable Long id, @RequestBody Strawberry strawberry){
-        return strawberryService.update(id, strawberry);
-    }
+//    @PutMapping("id=/{id}")
+//    Strawberry updateStrawberry(@PathVariable Long id, @RequestBody Strawberry strawberry){
+//        return strawberryService.update(id, strawberry);
+//    }
     @DeleteMapping("/id={id}")
     void deleteStrawberryWithID(@PathVariable Long id){
         strawberryService.deleteStrawberryWithID(id);

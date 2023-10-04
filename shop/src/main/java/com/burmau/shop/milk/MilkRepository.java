@@ -1,16 +1,17 @@
 package com.burmau.shop.milk;
 
-import com.burmau.shop.bread.Bread;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
 public interface MilkRepository extends JpaRepository<Milk, Long> {
-    Iterable<Bread> find();
-
-    Optional<Bread> findID(Long id);
-
-    Iterable<Bread> findBrand(String name);
-
+    @Query("SELECT u FROM Milk u")
+    Iterable<Milk> find();
+    @Query("SELECT u FROM Milk  u WHERE u.id = :id")
+    Optional<Milk> findID(Long id);
+    @Query("SELECT u FROM Milk u WHERE u.brand = :name")
+    Iterable<Milk> findBrand(String name);
+    @Query("DELETE FROM Milk u WHERE u.id = :id")
     void deleteID(Long id);
 }

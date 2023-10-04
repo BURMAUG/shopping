@@ -1,7 +1,5 @@
 package com.burmau.shop.milk;
 
-import com.burmau.shop.bread.Bread;
-import com.burmau.shop.bread.BreadService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,22 +12,22 @@ import java.util.Optional;
 public class MilkController {
     private final MilkService milkService;
     @GetMapping("/")
-    Iterable<Bread> getAllMilk(){
+    Iterable<Milk> getAllMilk(){
         return milkService.findAllMilk();
     }
     @GetMapping("/id={id}")
-    Optional<Bread> findMilk(@PathVariable Long id){
+    Optional<Milk> findMilk(@PathVariable Long id){
         return milkService.findById(id);
     }
     @GetMapping("/brand={name}")
-    Iterable<Bread> findMilkByBrand(@PathVariable String name){
+    Iterable<Milk> findMilkByBrand(@PathVariable String name){
         return milkService.findByBrand(name);
     }
     @PostMapping("/")
     void addAMilk(Milk milk){
         milkService.addMilk(milk);
     }
-    @PutMapping("id=/{id}")
+    @PutMapping("/id={id}")
     Milk updateMilk(@PathVariable Long id, @RequestBody Milk milk){
         return milkService.update(id, milk);
     }

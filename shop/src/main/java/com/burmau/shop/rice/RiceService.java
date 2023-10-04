@@ -17,10 +17,6 @@ class RiceService {
         return riceRepository.findID(id);
     }
 
-    public Iterable<Rice> findByBrand(String name) {
-        return riceRepository.findBrand(name);
-    }
-
     public void addRice(Rice rice) {
         riceRepository.save(rice);
     }
