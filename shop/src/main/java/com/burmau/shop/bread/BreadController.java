@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/'api/v2/bread")
+@CrossOrigin(origins = "http://localhost:3000/")
+@RequestMapping("/api/v2/bread")
 public class BreadController {
     private final BreadService breadService;
 
@@ -30,7 +31,7 @@ public class BreadController {
     void addADrink(Bread bread){
         breadService.addBread(bread);
     }
-    @PutMapping("id=/{id}")
+    @PutMapping("/id={id}")
     Bread updateDrink(@PathVariable Long id, @RequestBody Bread bread){
         return breadService.update(id, bread);
     }
