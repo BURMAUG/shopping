@@ -3,7 +3,7 @@
 This is the documentation of the store application project that I want to start soon. It will
 carry a limited amount of goods that can be queried and I am still contemplating on wether or not to
 their should be customers, however, I believe their should be a security login/logout.
-Here is the list of the products to be listed in the store: Milk, Tomato, Papper, strawberry, Maggie, and salt.
+Here is the list of the products to be listed in the store: Bread, Drink, Milk, Pepper, Rice, Strawberry
 
                                 Technology Stack 
     The technology I will be using in the project will be as follows:
@@ -13,11 +13,7 @@ Here is the list of the products to be listed in the store: Milk, Tomato, Papper
 
                               The RESTful APIs.
 ### >GET:
-    contains tomato, papper, strawberry, milk, drink, pepper, rice
-
-[//]: # (I think this should be structured as such /tomato, /pepper, /strawberry)
-
-[//]: # (    /spices - maggie and salt)
+    contains Bread, Drink, Milk, Pepper, Rice, Strawberry.
 
 ### >CREATE: 
 
