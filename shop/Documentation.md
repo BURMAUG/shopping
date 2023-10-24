@@ -16,7 +16,8 @@ Here is the list of the products to be listed in the store: Bread, Drink, Milk, 
     contains Bread, Drink, Milk, Pepper, Rice, Strawberry.
 
 ### >CREATE: 
-
+    You can create any of the above feature objects using the endpoints here.
 ### >UPDATE:
-
+    Updates are available by routes too here using the objects endpoint.
 ### >DELETE:
+    So are deletes.

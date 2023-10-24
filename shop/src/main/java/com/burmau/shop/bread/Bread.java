@@ -1,9 +1,6 @@
 package com.burmau.shop.bread;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 
@@ -14,10 +11,14 @@ import lombok.*;
 @Setter
 @ToString
 @EqualsAndHashCode
+@Table(name = "Bread")
 public class Bread {
     @Id
+    @Column(name = "breadID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long breadID;
+    @Column(name = "brand")
     String brand;
-    boolean isSliced;
+    @Column(name = "sliced")
+    boolean sliced;
 }

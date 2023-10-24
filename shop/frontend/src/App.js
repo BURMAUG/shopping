@@ -5,7 +5,7 @@ import Bread from "./component/Bread";
 function App() {
   return (
     <div className="App">
-        <Drink />
+        <Drink/>
         <Bread/>
     </div>
   );

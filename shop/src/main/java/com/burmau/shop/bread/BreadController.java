@@ -3,12 +3,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000/")
 @RequestMapping("/api/v2/bread")
 public class BreadController {
     private final BreadService breadService;
+    private static final Logger logger = Logger.getLogger(String.valueOf(BreadController.class));
 
     @Autowired
     BreadController(BreadService breadService) {
@@ -17,6 +19,7 @@ public class BreadController {
 
     @GetMapping("/")
     Iterable<Bread> getAllBread(){
+        logger.info("||Just Entered find all Bread =====>");
         return breadService.findAllBread();
     }
     @GetMapping("/id={id}")

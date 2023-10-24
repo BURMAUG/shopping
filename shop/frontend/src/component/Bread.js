@@ -23,7 +23,7 @@ const Bread = () =>{
                 bread.map((item, index) =>
                     <div key={index}>
                         <p>bread id: {item.breadID}</p>
-                        <p>brand: {item.brand}</p>
+                        <h1>brand: {item.brand}</h1>
                         <p>sliced: {item.isSliced}</p>
                     </div>
                 )

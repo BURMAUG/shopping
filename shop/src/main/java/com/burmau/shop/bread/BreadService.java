@@ -11,7 +11,7 @@ public class BreadService {
     private final BreadRepository breadRepository;
 
     public Iterable<Bread> findAllBread() {
-        return breadRepository.find();
+        return breadRepository.findAll();
     }
 
     public Optional<Bread> findById(Long id) {
