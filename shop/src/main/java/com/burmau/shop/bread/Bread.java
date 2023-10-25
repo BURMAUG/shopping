@@ -12,7 +12,7 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 @Table(name = "Bread")
-public class Bread {
+class Bread {
     @Id
     @Column(name = "breadID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Bread {
     @Column(name = "sliced")
     boolean sliced;
 
-    public boolean getSliced() {
+    boolean getSliced() {
         return sliced;
     }
 }

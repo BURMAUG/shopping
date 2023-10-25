@@ -9,17 +9,17 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 class PepperService {
-    private final PepperRepository pepperRepository;
-    public Iterable<Pepper> findAllPepper() {
+    final PepperRepository pepperRepository;
+      Iterable<Pepper> findAllPepper() {
         return pepperRepository.find();
     }
-    public Optional<Pepper> findById(Long id) {
+    Optional<Pepper> findById(Long id) {
         return pepperRepository.findID(id);
     }
-    public void addPepper(Pepper pepper) {
+    void addPepper(Pepper pepper) {
         pepperRepository.save(pepper);
     }
-    public void update(Long id, String description, BigDecimal price) {
+    void update(Long id, String description, BigDecimal price) {
         if(!pepperRepository.existsById(id))
             throw new PepperNotFoundException("Item Not Found here.");
         pepperRepository.findID(id).ifPresent(dbpepper ->{
@@ -28,7 +28,7 @@ class PepperService {
             pepperRepository.updatePepper(id, description, price);
         });
     }
-    public void deletePepperWithID(Long id) {
+   void deletePepperWithID(Long id) {
         pepperRepository.deleteID(id);
     }
 }

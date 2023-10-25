@@ -7,30 +7,30 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class BreadService {
-    private final BreadRepository breadRepository;
+class BreadService {
+    final BreadRepository breadRepository;
 
-    public Iterable<Bread> findAllBread() {
-        return breadRepository.findAll();
+     Iterable<Bread> findAllBread() {
+        return breadRepository.find();
     }
 
-    public Optional<Bread> findById(Long id) {
+     Optional<Bread> findById(Long id) {
         if(breadRepository.existsById(id))
             return breadRepository.findID(id);
         throw new BreadNotFoundException("Bread Not Found!");
     }
 
-    public Iterable<Bread> findByBrand(String name) {
+     Iterable<Bread> findByBrand(String name) {
         if(breadRepository.existsByBrand(name))
             return breadRepository.findBrand(name);
         throw new BreadNotFoundException("Bread Not Found");
     }
 
-    public void addBread(Bread bread) {
+     void addBread(Bread bread) {
        breadRepository.save(bread);
     }
 
-    public void update(Long id, Bread bread) {
+     void update(Long id, Bread bread) {
         if (!breadRepository.existsById(id))
             throw new BreadNotFoundException("Not Found.");
         breadRepository.findID(id).ifPresent(dbBread -> {
@@ -41,7 +41,7 @@ public class BreadService {
 
     }
 
-    public void deleteBreadWithID(Long id) {
+     void deleteBreadWithID(Long id) {
         breadRepository.deleteById(id);
     }
 }

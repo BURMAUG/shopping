@@ -7,25 +7,25 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class MilkService {
-    private final MilkRepository milkRepository;
-    public Iterable<Milk> findAllMilk() {
+class MilkService {
+    final MilkRepository milkRepository;
+    Iterable<Milk> findAllMilk() {
         return milkRepository.find();
     }
 
-    public Optional<Milk> findById(Long id) {
+    Optional<Milk> findById(Long id) {
         return milkRepository.findID(id);
     }
 
-    public Iterable<Milk> findByBrand(String name) {
+    Iterable<Milk> findByBrand(String name) {
         return milkRepository.findBrand(name);
     }
 
-    public void addMilk(Milk milk) {
+    void addMilk(Milk milk) {
         milkRepository.save(milk);
     }
 
-    public void update(Long id, Milk milk) {
+    void update(Long id, Milk milk) {
         if (!milkRepository.existsById(id))
             throw new MilkNotFoundException("Not Found");
         milkRepository.findID(id).ifPresent(milkdb -> {
@@ -35,7 +35,7 @@ public class MilkService {
         });
     }
 
-    public void deleteMilkWithID(Long id) {
+    void deleteMilkWithID(Long id) {
         milkRepository.deleteID(id);
     }
 }

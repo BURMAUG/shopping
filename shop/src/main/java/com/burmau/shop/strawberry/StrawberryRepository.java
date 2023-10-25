@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
-public interface StrawberryRepository extends JpaRepository<Strawberry, Long> {
+interface StrawberryRepository extends JpaRepository<Strawberry, Long> {
     @Query("DELETE FROM Strawberry u WHERE u.strawberryID = :id ")
     void deleteID(Long id);
     @Query("SELECT u FROM Strawberry u WHERE u.strawberryID = :id ")

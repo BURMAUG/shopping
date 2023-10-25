@@ -9,7 +9,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class RiceController {
 
-    private final RiceService riceService;
+    final RiceService riceService;
     @GetMapping("/")
     Iterable<Rice> getAllRice(){
         return riceService.findAllRice();

@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
-public interface BreadRepository extends JpaRepository<Bread, Long> {
+interface BreadRepository extends JpaRepository<Bread, Long> {
     @Query("SELECT u FROM  Bread u")
     Iterable<Bread> find();
     @Query("SELECT u FROM Bread u WHERE u.breadID = :id")

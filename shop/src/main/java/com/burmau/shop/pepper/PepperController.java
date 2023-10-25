@@ -12,7 +12,7 @@ import java.util.Optional;
 @AllArgsConstructor
 class PepperController {
 
-    private final PepperService pepperService;
+    final PepperService pepperService;
     @GetMapping("/")
     Iterable<Pepper> getAllPepper(){
         return pepperService.findAllPepper();

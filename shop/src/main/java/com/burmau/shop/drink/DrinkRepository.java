@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DrinkRepository extends CrudRepository<Drink, Long> {
+interface DrinkRepository extends CrudRepository<Drink, Long> {
     @Query("SELECT u FROM Drink u WHERE u.brand = :name")
     Iterable<Drink> findByBrand(String name);
     @Override

@@ -9,8 +9,8 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v2/milk")
-public class MilkController {
-    private final MilkService milkService;
+class MilkController {
+    final MilkService milkService;
     @GetMapping("/")
     Iterable<Milk> getAllMilk(){
         return milkService.findAllMilk();

@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter
 @ToString @EqualsAndHashCode
-public class Strawberry {
+class Strawberry {
     @Id
     Long strawberryID;
     String brand;

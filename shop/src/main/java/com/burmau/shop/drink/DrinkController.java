@@ -9,7 +9,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/v2/drink")
 class DrinkController implements Serializable {
-    private final DrinkService drinkService;
+    final DrinkService drinkService;
 
     DrinkController(DrinkService drinkService) {
         this.drinkService = drinkService;

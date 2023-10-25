@@ -1,6 +1,6 @@
 package com.burmau.shop.milk;
 
-public class MilkNotFoundException extends RuntimeException{
+class MilkNotFoundException extends RuntimeException{
     MilkNotFoundException(String message){
         super(message);
     }

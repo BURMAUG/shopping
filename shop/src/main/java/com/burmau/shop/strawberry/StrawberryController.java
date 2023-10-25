@@ -12,7 +12,7 @@ import java.util.Optional;
 @AllArgsConstructor
 class StrawberryController {
 
-    private final StrawberryService strawberryService;
+    final StrawberryService strawberryService;
     @GetMapping("/")
     Iterable<Strawberry> getAllStrawberry(){
         return strawberryService.findAllStrawberry();

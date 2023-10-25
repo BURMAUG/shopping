@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class DrinkService {
-    private final DrinkRepository drinkRepository;
+class DrinkService {
+    final DrinkRepository drinkRepository;
 
     DrinkService(DrinkRepository drinkRepository) {
         this.drinkRepository = drinkRepository;
@@ -40,7 +40,7 @@ public class DrinkService {
             throw new DrinkNotFoundException("Not found.");
     }
 
-    public void update(Long id, Drink drink) {
+     void update(Long id, Drink drink) {
         if(!drinkRepository.existsById(id))
             throw new DrinkNotFoundException("Not Found");
         drinkRepository.findById(id).ifPresent(dbdrink ->{
@@ -51,7 +51,7 @@ public class DrinkService {
         });
     }
 
-    public void addDrink(Drink bread) {
+     void addDrink(Drink bread) {
         if (drinkRepository.existsById(bread.drinkID))
             throw new DrinkNotFoundException("Already exist!");
         drinkRepository.save(bread);
