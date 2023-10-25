@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @Getter @Setter
 @ToString
 @EqualsAndHashCode
-class Milk{
+public class Milk{
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         Long id;

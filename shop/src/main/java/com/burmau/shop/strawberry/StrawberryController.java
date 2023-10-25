@@ -25,10 +25,10 @@ class StrawberryController {
     void addAStrawberry(Strawberry strawberry){
         strawberryService.addStrawberry(strawberry);
     }
-//    @PutMapping("id=/{id}")
-//    Strawberry updateStrawberry(@PathVariable Long id, @RequestBody Strawberry strawberry){
-//        return strawberryService.update(id, strawberry);
-//    }
+    @PutMapping("id=/{id}")
+    Strawberry updateStrawberry(@PathVariable Long id, @RequestBody Strawberry strawberry){
+        return strawberryService.update(id, strawberry);
+    }
     @DeleteMapping("/id={id}")
     void deleteStrawberryWithID(@PathVariable Long id){
         strawberryService.deleteStrawberryWithID(id);

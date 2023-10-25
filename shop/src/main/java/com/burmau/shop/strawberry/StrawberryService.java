@@ -21,9 +21,16 @@ public class StrawberryService {
         strawberryRepository.save(strawberry);
     }
 
-//    public Strawberry update(Long id, Strawberry strawberry) {
-//        return null;
-//    }
+    public void update(Long id, Strawberry strawberry) {
+        if(!strawberryRepository.existsById(id))
+            throw new StrawberryNotFoundException("Item not found");
+        strawberryRepository.findID(id).ifPresent(dbstrawberry ->{
+            dbstrawberry.setBrand(strawberry.getBrand());
+            dbstrawberry.setPrice(strawberry.getPrice());
+            strawberryRepository.save(dbstrawberry);
+        });
+
+    }
 
     public void deleteStrawberryWithID(Long id) {
         strawberryRepository.deleteID(id);

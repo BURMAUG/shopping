@@ -30,8 +30,15 @@ public class BreadService {
        breadRepository.save(bread);
     }
 
-    public Bread update(Long id, Bread bread) {
-        return null;
+    public void update(Long id, Bread bread) {
+        if (!breadRepository.existsById(id))
+            throw new BreadNotFoundException("Not Found.");
+        breadRepository.findID(id).ifPresent(dbBread -> {
+            bread.setBrand(dbBread.getBrand());
+            bread.setSliced(dbBread.getSliced());
+            breadRepository.save(dbBread);
+        });
+
     }
 
     public void deleteBreadWithID(Long id) {

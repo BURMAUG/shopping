@@ -36,8 +36,8 @@ class DrinkController implements Serializable {
         drinkService.addDrink(bread);
     }
     @PutMapping("id=/{id}")
-    Drink updateDrink(@PathVariable Long id, @RequestBody Drink bread){
-        return drinkService.update(id, bread);
+    void updateDrink(@PathVariable Long id, @RequestBody Drink bread){
+        drinkService.update(id, bread);
     }
     @DeleteMapping("/id={id}")
     void deleteDrinkWithID(@PathVariable Long id){

@@ -21,8 +21,14 @@ class RiceService {
         riceRepository.save(rice);
     }
 
-    public Rice update(Long id, Rice rice) {
-        return null;
+    public void update(Long id, Rice rice) {
+        if(!riceRepository.existsById(id))
+            throw new RiceNotFoundException("Item Not Found.");
+        riceRepository.findID(id).ifPresent(dbrice -> {
+            dbrice.setDescription(rice.getDescription());
+            dbrice.setPrice(rice.getPrice());
+            riceRepository.save(dbrice);
+        });
     }
 
     public void deleteRiceWithID(Long id) {

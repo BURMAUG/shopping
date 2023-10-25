@@ -25,8 +25,14 @@ public class MilkService {
         milkRepository.save(milk);
     }
 
-    public Milk update(Long id, Milk milk) {
-        return milkRepository.save(milk);
+    public void update(Long id, Milk milk) {
+        if (!milkRepository.existsById(id))
+            throw new MilkNotFoundException("Not Found");
+        milkRepository.findID(id).ifPresent(milkdb -> {
+            milkdb.setBrand(milk.getBrand());
+            milkdb.setPrice(milk.getPrice());
+            milkRepository.save(milk);
+        });
     }
 
     public void deleteMilkWithID(Long id) {

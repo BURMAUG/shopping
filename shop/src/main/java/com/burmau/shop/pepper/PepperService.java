@@ -18,9 +18,15 @@ class PepperService {
     public void addPepper(Pepper pepper) {
         pepperRepository.save(pepper);
     }
-//    public Pepper update(Long id, Pepper pepper) {
-//        return pepperRepository.updatePepper(pepper);
-//    }
+    public void update(Long id, Pepper pepper) {
+        if(!pepperRepository.existsById(id))
+            throw new PepperNotFoundException("Item Not Found here.");
+        pepperRepository.findID(id).ifPresent(dbpepper ->{
+            dbpepper.setDescription(pepper.getDescription());
+            dbpepper.setPrice(pepper.getPrice());
+            pepperRepository.updatePepper(pepper);
+        });
+    }
     public void deletePepperWithID(Long id) {
         pepperRepository.deleteID(id);
     }

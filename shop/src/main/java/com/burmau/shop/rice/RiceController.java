@@ -22,10 +22,10 @@ public class RiceController {
     void addARice(Rice rice){
         riceService.addRice(rice);
     }
-//    @PutMapping("id=/{id}")
-//    Rice updateRice(@PathVariable Long id, @RequestBody Rice rice){
-//        return riceService.update(id, rice);
-//    }
+    @PutMapping("/id={id}")
+    void updateRice(@PathVariable Long id, @RequestBody Rice rice){
+        riceService.update(id, rice);
+    }
     @DeleteMapping("/id={id}")
     void deleteRiceWithID(@PathVariable Long id){
         riceService.deleteRiceWithID(id);

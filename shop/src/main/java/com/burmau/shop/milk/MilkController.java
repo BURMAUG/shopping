@@ -28,8 +28,8 @@ public class MilkController {
         milkService.addMilk(milk);
     }
     @PutMapping("/id={id}")
-    Milk updateMilk(@PathVariable Long id, @RequestBody Milk milk){
-        return milkService.update(id, milk);
+    void updateMilk(@PathVariable Long id, @RequestBody Milk milk){
+         milkService.update(id, milk);
     }
     @DeleteMapping("/id={id}")
     void deleteMilkWithID(@PathVariable Long id){

@@ -23,10 +23,10 @@ class PepperController {
     void addAPepper(Pepper pepper){
         pepperService.addPepper(pepper);
     }
-//    @PutMapping("id=/{id}")
-//    Pepper updatePepper(@PathVariable Long id, @RequestBody Pepper pepper){
-//        return pepperService.update(id, pepper);
-//    }
+    @PutMapping("/id={id}")
+    void updatePepper(@PathVariable Long id, @RequestBody Pepper pepper){
+         pepperService.update(id, pepper);
+    }
     @DeleteMapping("/id={id}")
     void deletePepperWithID(@PathVariable Long id){
         pepperService.deletePepperWithID(id);

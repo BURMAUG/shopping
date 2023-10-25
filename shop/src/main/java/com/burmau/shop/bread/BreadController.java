@@ -35,8 +35,8 @@ public class BreadController {
         breadService.addBread(bread);
     }
     @PutMapping("/id={id}")
-    Bread updateDrink(@PathVariable Long id, @RequestBody Bread bread){
-        return breadService.update(id, bread);
+    void updateDrink(@PathVariable Long id, @RequestBody Bread bread){
+        breadService.update(id, bread);
     }
     @DeleteMapping("/id={id}")
     void deleteDrinkWithID(@PathVariable Long id){
