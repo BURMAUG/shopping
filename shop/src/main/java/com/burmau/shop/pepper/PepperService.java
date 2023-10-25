@@ -3,6 +3,7 @@ package com.burmau.shop.pepper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 @Service
@@ -18,13 +19,13 @@ class PepperService {
     public void addPepper(Pepper pepper) {
         pepperRepository.save(pepper);
     }
-    public void update(Long id, Pepper pepper) {
+    public void update(Long id, String description, BigDecimal price) {
         if(!pepperRepository.existsById(id))
             throw new PepperNotFoundException("Item Not Found here.");
         pepperRepository.findID(id).ifPresent(dbpepper ->{
-            dbpepper.setDescription(pepper.getDescription());
-            dbpepper.setPrice(pepper.getPrice());
-            pepperRepository.updatePepper(pepper);
+            dbpepper.setDescription(description);
+            dbpepper.setPrice(price);
+            pepperRepository.updatePepper(id, description, price);
         });
     }
     public void deletePepperWithID(Long id) {

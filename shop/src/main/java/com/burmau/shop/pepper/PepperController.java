@@ -1,8 +1,10 @@
 package com.burmau.shop.pepper;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 @RestController
@@ -24,8 +26,8 @@ class PepperController {
         pepperService.addPepper(pepper);
     }
     @PutMapping("/id={id}")
-    void updatePepper(@PathVariable Long id, @RequestBody Pepper pepper){
-         pepperService.update(id, pepper);
+    void updatePepper(@PathVariable Long id, String description, BigDecimal price){
+         pepperService.update(id, description, price);
     }
     @DeleteMapping("/id={id}")
     void deletePepperWithID(@PathVariable Long id){
