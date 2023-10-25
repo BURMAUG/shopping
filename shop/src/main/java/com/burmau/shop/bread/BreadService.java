@@ -35,7 +35,7 @@ class BreadService {
             throw new BreadNotFoundException("Not Found.");
         breadRepository.findID(id).ifPresent(dbBread -> {
             bread.setBrand(dbBread.getBrand());
-            bread.setSliced(dbBread.getSliced());
+            bread.setSliced(dbBread.isSliced());
             breadRepository.save(dbBread);
         });
 

@@ -21,8 +21,4 @@ class Bread {
     String brand;
     @Column(name = "sliced")
     boolean sliced;
-
-    boolean getSliced() {
-        return sliced;
-    }
 }
