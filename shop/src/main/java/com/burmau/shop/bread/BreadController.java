@@ -19,7 +19,7 @@ public class BreadController {
 
     @GetMapping("/")
     Iterable<Bread> getAllBread(){
-        logger.info("||Just Entered find all Bread =====>");
+        logger.info("||Just Entered find all Bread =====>" + breadService.findAllBread());
         return breadService.findAllBread();
     }
     @GetMapping("/id={id}")

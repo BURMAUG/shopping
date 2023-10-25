@@ -9,7 +9,10 @@ const Bread = () =>{
             mode: 'cors',
             headers: {'Content-Type': 'application/json'}
         }).then(res => res.json())
-            .then(resData => setBread(resData))
+            .then(resData =>{
+                console.log(resData)
+                setBread(resData)
+            })
             .catch(err => console.log(err))
     }
 
@@ -22,9 +25,9 @@ const Bread = () =>{
             {
                 bread.map((item, index) =>
                     <div key={index}>
-                        <p>bread id: {item.breadID}</p>
                         <h1>brand: {item.brand}</h1>
-                        <p>sliced: {item.isSliced}</p>
+                        <p>bread id: {item.breadID}</p>
+                        sliced: {item.sliced ? <p>yes</p> : <p>No</p>}
                     </div>
                 )
             }
