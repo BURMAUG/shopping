@@ -1,17 +1,16 @@
 import {useEffect, useState} from "react";
+import {fetchDrinksData} from "../client";
 
 const Drink = () =>{
     const [item, setItem] = useState([])
     function fetchDrink(){
-        fetch("http://localhost:8081/api/v2/drink/",{
-            method: "GET",
-            headers: {"Content-Type": "application/json"}
-        }).then(res => res.json())
-            .then(resData =>{
-                console.log(resData);
-                setItem(resData);
-            })
-            .catch(console.error);
+      fetchDrinksData()
+          .then(res => res.json())
+          .then(resData =>{
+              console.log(resData);
+              setItem(resData);
+          })
+          .catch(console.error);
     }
 
     useEffect(() => {
@@ -25,6 +24,8 @@ const Drink = () =>{
                         <h1>Brand: {data.brand}</h1>
                         <p>manufacturer: {data.manufacturer}</p>
                         <p>Price: ${data.price}</p>
+                        <button className="btn btn-primary"> Delete</button>
+                        <button className="btn btn-primary"> Update</button>
                     </div>
                 )
             }
