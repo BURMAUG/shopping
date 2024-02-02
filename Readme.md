@@ -27,6 +27,6 @@ Here is the list of the products to be listed in the store: Bread, Drink, Milk, 
 </video>
 
 ## Postman Create and Read Endpoints
-![create](~/shop/image/Drink-post.png)
+![create](../shop/image/Drink-post.png)
 ![!read](image/Drink-get.png)
 
