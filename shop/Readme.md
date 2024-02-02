@@ -19,3 +19,13 @@ Here is the list of the products to be listed in the store: Bread, Drink, Milk, 
     Updates are available by routes too here using the objects endpoint.
 ### DELETE:
     So are deletes.
+
+## Postman Recording
+<video width="640" height="360" controls>
+  <source src="/image/EndpointTesting.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+## Postman Create and Read Endpoints
+![create](image/Drink-post.png)
+![!read](image/Drink-get.png)
