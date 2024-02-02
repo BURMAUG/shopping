@@ -8,7 +8,6 @@ Here is the list of the products to be listed in the store: Bread, Drink, Milk, 
                                 Technology Stack 
     The technology I will be using in the project will be as follows:
         For the backend I will be using Java springboot, mysql.
-        For the frontend I will be using Reactjs
         For the version control I will be using github and maybe github actions.
 
                               The RESTful APIs.
