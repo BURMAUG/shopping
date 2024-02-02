@@ -3,7 +3,10 @@ HELP.md
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
-!**/src/test/**/build/
+!**/src/test/**/build
+!../fullstack.txt
+!../lcs.txt
+!../kroger.txt
 
 ### STS ###
 .apt_generated
