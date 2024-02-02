@@ -10,15 +10,19 @@ Here is the list of the products to be listed in the store: Bread, Drink, Milk, 
         For the version control I will be using github and maybe github actions.
 
                               The RESTful APIs.
-### GET:
-    contains Bread, Drink, Milk, Pepper, Rice, Strawberry.
+## TECH STACK
+* Java
+* Spring Boot
 
-### CREATE: 
-    You can create any of the above feature objects using the endpoints here.
-### UPDATE:
-    Updates are available by routes too here using the objects endpoint.
-### DELETE:
-    So are deletes.
+## Build Tool
+* Gradle
+
+## Dependencies
+* Spring starter jpa
+* Spring starter web
+* Spring starter jdbc
+* H2 Database
+* MockMVC
 
 ## Postman Recording
 <video width="640" height="360" controls>
