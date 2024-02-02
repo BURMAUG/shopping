@@ -8,6 +8,7 @@ build/
 !../lcs.txt
 !../kroger.txt
 
+
 ### STS ###
 .apt_generated
 .classpath
