@@ -12,13 +12,13 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 @Table(name = "Bread")
-class Bread {
+public class Bread {
     @Id
     @Column(name = "breadID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long breadID;
+    private Long breadID;
     @Column(name = "brand")
-    String brand;
+    private String brand;
     @Column(name = "sliced")
-    boolean sliced;
+    private boolean sliced;
 }

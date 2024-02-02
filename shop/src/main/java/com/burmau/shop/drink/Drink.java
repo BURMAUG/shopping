@@ -12,11 +12,11 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter @Setter
 @ToString
-class Drink {
+public class Drink {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        Long drinkID;
-        String brand;
-        String manufacturer;
-        BigDecimal price;
+        private Long drinkID;
+        private String brand;
+        private String manufacturer;
+        private BigDecimal price;
 }

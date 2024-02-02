@@ -19,7 +19,7 @@ class DrinkService {
         if (drinkRepository.existsById(drinkID))
             return drinkRepository.findById(drinkID);
         else
-            throw new DrinkNotFoundException("Drink with the following ID was not found: ");
+            throw new DrinkNotFoundException("Drink with the following ID was not found: " + drinkID);
     }
     void deleteDrinkWithID(Long drinkID){
         if (drinkRepository.existsById(drinkID))
@@ -44,17 +44,15 @@ class DrinkService {
         if(!drinkRepository.existsById(id))
             throw new DrinkNotFoundException("Not Found");
         drinkRepository.findById(id).ifPresent(dbdrink ->{
-            dbdrink.setBrand(dbdrink.manufacturer);
+            dbdrink.setBrand(dbdrink.getManufacturer());
             dbdrink.setManufacturer(drink.getManufacturer());
             dbdrink.setPrice(drink.getPrice());
             drinkRepository.save(dbdrink);
         });
     }
 
-     void addDrink(Drink bread) {
-        if (drinkRepository.existsById(bread.drinkID))
-            throw new DrinkNotFoundException("Already exist!");
-        drinkRepository.save(bread);
-    }
+     void addDrink(Drink drink) {
+             drinkRepository.save(drink);
+     }
 
 }

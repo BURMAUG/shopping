@@ -5,9 +5,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-interface DrinkRepository extends CrudRepository<Drink, Long> {
+public interface DrinkRepository extends CrudRepository<Drink, Long> {
     @Query("SELECT u FROM Drink u WHERE u.brand = :name")
     Iterable<Drink> findByBrand(String name);
+//    @Query("SELECT u FROM Drink u WHERE u.drinkID = :drinkID")
+//    Drink findByDrinkID(Long drinkID);
     @Override
     @Query("SELECT u FROM Drink u")
     Iterable<Drink> findAll();

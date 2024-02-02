@@ -1,5 +1,7 @@
 package com.burmau.shop.drink;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
@@ -15,9 +17,9 @@ class DrinkController implements Serializable {
         this.drinkService = drinkService;
     }
 
-    @GetMapping("/")
-    Iterable<Drink> getAllDrinks(){
-        return drinkService.findAllDrink();
+    @GetMapping
+    ResponseEntity<Iterable<Drink>> getAllDrinks(){
+        return new ResponseEntity<>(drinkService.findAllDrink(), HttpStatus.OK);
     }
     @GetMapping("/id={id}")
     Optional<Drink> findDrink(@PathVariable Long id){
@@ -32,12 +34,12 @@ class DrinkController implements Serializable {
         return drinkService.findByManufacturer(manufacturer);
     }
     @PostMapping("/")
-    void addADrink(Drink bread){
-        drinkService.addDrink(bread);
+    void addADrink(@RequestBody Drink drink){
+        drinkService.addDrink(drink);
     }
     @PutMapping("id=/{id}")
-    void updateDrink(@PathVariable Long id, @RequestBody Drink bread){
-        drinkService.update(id, bread);
+    void updateDrink(@PathVariable Long id, @RequestBody Drink drink){
+        drinkService.update(id, drink);
     }
     @DeleteMapping("/id={id}")
     void deleteDrinkWithID(@PathVariable Long id){

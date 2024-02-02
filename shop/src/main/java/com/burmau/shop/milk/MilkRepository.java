@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
-interface MilkRepository extends JpaRepository<Milk, Long> {
+public interface MilkRepository extends JpaRepository<Milk, Long> {
     @Query("SELECT u FROM Milk u")
     Iterable<Milk> find();
     @Query("SELECT u FROM Milk  u WHERE u.id = :id")
